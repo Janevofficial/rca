@@ -1,1 +1,677 @@
+/* =========================================================
+   ROSE CHILDREN ACADEMY
+   NOTICE BOARD CSS
+   ========================================================= */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.notice-container {
+    width: 95%;
+    max-width: 1500px;
+    margin: 40px auto;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.notice-header {
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.notice-small-title {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #2563eb;
+    margin-bottom: 5px;
+}
+
+.notice-header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.notice-header p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+
+/* =========================================================
+   ADD NOTICE BUTTON
+   ========================================================= */
+
+.add-notice-btn {
+    border: none;
+    background: #2563eb;
+    color: #ffffff;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.add-notice-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   TOOLBAR
+   ========================================================= */
+
+.notice-toolbar {
+    margin-top: 20px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.search-box {
+    flex: 1;
+}
+
+.search-box input,
+.notice-toolbar select {
+    width: 100%;
+    height: 44px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    padding: 0 14px;
+    outline: none;
+    font-size: 14px;
+    background: #ffffff;
+}
+
+.notice-toolbar select {
+    width: 220px;
+    cursor: pointer;
+}
+
+.search-box input:focus,
+.notice-toolbar select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+   ========================================================= */
+
+.notice-table-wrapper {
+    margin-top: 20px;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow-x: auto;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.notice-table {
+    width: 100%;
+    min-width: 1050px;
+    border-collapse: collapse;
+}
+
+.notice-table thead {
+    background: #111827;
+}
+
+.notice-table th {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    padding: 15px 14px;
+    white-space: nowrap;
+}
+
+.notice-table td {
+    padding: 15px 14px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 13px;
+    vertical-align: middle;
+    line-height: 1.6;
+}
+
+.notice-table tbody tr {
+    transition: 0.2s ease;
+}
+
+.notice-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.notice-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   COLUMN WIDTH
+   ========================================================= */
+
+.serial-column {
+    width: 65px;
+    text-align: center !important;
+}
+
+.notice-table th:nth-child(2) {
+    width: 130px;
+}
+
+.notice-table th:nth-child(3) {
+    width: 230px;
+}
+
+.notice-table th:nth-child(4) {
+    width: 130px;
+}
+
+.notice-table th:nth-child(5) {
+    min-width: 330px;
+}
+
+.notice-table th:nth-child(6) {
+    width: 110px;
+}
+
+.notice-table th:nth-child(7) {
+    width: 150px;
+}
+
+
+/* =========================================================
+   NOTICE DATE
+   ========================================================= */
+
+.notice-date {
+    font-weight: 600;
+    color: #374151;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   NOTICE TITLE
+   ========================================================= */
+
+.notice-table td strong {
+    color: #111827;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   CATEGORY
+   ========================================================= */
+
+.category {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+/* General */
+
+.category.general {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+
+/* Admission */
+
+.category.admission {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+
+/* Examination */
+
+.category.examination {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+
+/* Holiday */
+
+.category.holiday {
+    background: #dcfce7;
+    color: #166534;
+}
+
+
+/* Event */
+
+.category.event {
+    background: #ede9fe;
+    color: #6d28d9;
+}
+
+
+/* Important */
+
+.category.important {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* =========================================================
+   VIEW BUTTON
+   ========================================================= */
+
+.view-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 13px;
+    background: #eff6ff;
+    color: #2563eb;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.view-btn:hover {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   NO FILE
+   ========================================================= */
+
+.no-file {
+    color: #9ca3af;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+   ========================================================= */
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.edit-btn,
+.delete-btn {
+    border: none;
+    padding: 7px 11px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.edit-btn {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.edit-btn:hover {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.delete-btn {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   EMPTY MESSAGE
+   ========================================================= */
+
+.empty-message {
+    display: none;
+    background: #ffffff;
+    margin-top: 15px;
+    padding: 30px;
+    text-align: center;
+    color: #6b7280;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.60);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+
+/* =========================================================
+   MODAL CONTENT
+   ========================================================= */
+
+.modal-content {
+    width: 100%;
+    max-width: 650px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.20);
+    animation: modalOpen 0.2s ease;
+}
+
+@keyframes modalOpen {
+
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   MODAL HEADER
+   ========================================================= */
+
+.modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-header h2 {
+    font-size: 20px;
+    color: #111827;
+}
+
+.close-modal {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    background: #e5e7eb;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+#noticeForm {
+    padding: 24px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    padding: 11px 13px;
+    font-family: inherit;
+    font-size: 13px;
+    color: #111827;
+    outline: none;
+    background: #ffffff;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #9ca3af;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   FORM BUTTONS
+   ========================================================= */
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 5px;
+}
+
+.cancel-btn,
+.save-btn {
+    border: none;
+    padding: 11px 20px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.cancel-btn:hover {
+    background: #e5e7eb;
+}
+
+.save-btn {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.save-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .notice-container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .notice-header {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .notice-header h1 {
+        font-size: 25px;
+    }
+
+    .add-notice-btn {
+        width: 100%;
+    }
+
+    .notice-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .notice-toolbar select {
+        width: 100%;
+    }
+
+    .notice-table-wrapper {
+        border-radius: 10px;
+    }
+
+    .modal {
+        padding: 12px;
+    }
+
+    .modal-content {
+        max-height: 94vh;
+    }
+
+    #noticeForm {
+        padding: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .notice-container {
+        width: 96%;
+    }
+
+    .notice-header {
+        padding: 17px;
+    }
+
+    .notice-header h1 {
+        font-size: 22px;
+    }
+
+    .notice-header p {
+        font-size: 12px;
+    }
+
+    .add-notice-btn {
+        padding: 11px;
+    }
+
+    .modal-header {
+        padding: 16px;
+    }
+
+    .modal-header h2 {
+        font-size: 17px;
+    }
+
+    #noticeForm {
+        padding: 16px;
+    }
+
+    .form-buttons {
+        flex-direction: column-reverse;
+    }
+
+    .cancel-btn,
+    .save-btn {
+        width: 100%;
+    }
+
+}
