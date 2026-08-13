@@ -1,1 +1,734 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notice Board | Rose Children Academy</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="notice-board.css">
+</head>
+
+<body>
+
+<div class="notice-container">
+
+    <!-- HEADER -->
+    <div class="notice-header">
+        <div>
+            <span class="notice-small-title">SCHOOL INFORMATION</span>
+            <h1>Notice Board</h1>
+            <p>Latest notices and important announcements</p>
+        </div>
+
+        <button class="add-notice-btn" onclick="openNoticeForm()">
+            + Add Notice
+        </button>
+    </div>
+
+
+    <!-- SEARCH / FILTER -->
+    <div class="notice-toolbar">
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchNotice"
+                placeholder="Search notice..."
+                onkeyup="searchNotice()"
+            >
+        </div>
+
+        <select id="categoryFilter" onchange="filterNotice()">
+            <option value="">All Categories</option>
+            <option value="General">General</option>
+            <option value="Admission">Admission</option>
+            <option value="Examination">Examination</option>
+            <option value="Holiday">Holiday</option>
+            <option value="Event">Event</option>
+            <option value="Important">Important</option>
+        </select>
+
+    </div>
+
+
+    <!-- NOTICE TABLE -->
+    <div class="notice-table-wrapper">
+
+        <table class="notice-table">
+
+            <thead>
+                <tr>
+                    <th class="serial-column">S.No.</th>
+                    <th>Date</th>
+                    <th>Notice Title</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Attachment</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="noticeTableBody">
+
+                <!-- NOTICE ROW -->
+                <tr>
+                    <td>1</td>
+
+                    <td>
+                        <span class="notice-date">
+                            13 Aug 2026
+                        </span>
+                    </td>
+
+                    <td>
+                        <strong>Independence Day Celebration</strong>
+                    </td>
+
+                    <td>
+                        <span class="category event">
+                            Event
+                        </span>
+                    </td>
+
+                    <td>
+                        School will remain open for the Independence Day
+                        celebration. Students are requested to attend in
+                        proper school uniform.
+                    </td>
+
+                    <td>
+                        <a href="#" class="view-btn">
+                            View
+                        </a>
+                    </td>
+
+                    <td>
+                        <div class="action-buttons">
+
+                            <button
+                                class="edit-btn"
+                                onclick="editNotice(this)">
+                                Edit
+                            </button>
+
+                            <button
+                                class="delete-btn"
+                                onclick="deleteNotice(this)">
+                                Delete
+                            </button>
+
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- EMPTY MESSAGE -->
+    <div id="emptyMessage" class="empty-message">
+        No notices found.
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ADD / EDIT NOTICE MODAL
+===================================================== -->
+
+<div id="noticeModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2 id="modalTitle">Add New Notice</h2>
+
+            <button
+                class="close-modal"
+                onclick="closeNoticeForm()">
+                &times;
+            </button>
+        </div>
+
+
+        <form id="noticeForm" onsubmit="saveNotice(event)">
+
+            <input type="hidden" id="editRowIndex">
+
+
+            <!-- DATE -->
+            <div class="form-group">
+
+                <label for="noticeDate">
+                    Notice Date
+                </label>
+
+                <input
+                    type="date"
+                    id="noticeDate"
+                    required>
+
+            </div>
+
+
+            <!-- TITLE -->
+            <div class="form-group">
+
+                <label for="noticeTitle">
+                    Notice Title
+                </label>
+
+                <input
+                    type="text"
+                    id="noticeTitle"
+                    placeholder="Enter notice title"
+                    required>
+
+            </div>
+
+
+            <!-- CATEGORY -->
+            <div class="form-group">
+
+                <label for="noticeCategory">
+                    Category
+                </label>
+
+                <select id="noticeCategory" required>
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+                    <option value="General">
+                        General
+                    </option>
+
+                    <option value="Admission">
+                        Admission
+                    </option>
+
+                    <option value="Examination">
+                        Examination
+                    </option>
+
+                    <option value="Holiday">
+                        Holiday
+                    </option>
+
+                    <option value="Event">
+                        Event
+                    </option>
+
+                    <option value="Important">
+                        Important
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+            <div class="form-group">
+
+                <label for="noticeDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="noticeDescription"
+                    rows="5"
+                    placeholder="Enter notice details..."
+                    required></textarea>
+
+            </div>
+
+
+            <!-- ATTACHMENT -->
+            <div class="form-group">
+
+                <label for="noticeAttachment">
+                    Attachment / PDF Link
+                </label>
+
+                <input
+                    type="text"
+                    id="noticeAttachment"
+                    placeholder="Enter PDF or document URL">
+
+                <small>
+                    Example: notice.pdf
+                </small>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+            <div class="form-buttons">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    onclick="closeNoticeForm()">
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-btn">
+                    Save Notice
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   OPEN FORM
+===================================================== */
+
+function openNoticeForm() {
+
+    document.getElementById("noticeModal").style.display = "flex";
+
+    document.getElementById("modalTitle").innerText =
+        "Add New Notice";
+
+    document.getElementById("noticeForm").reset();
+
+    document.getElementById("editRowIndex").value = "";
+
+}
+
+
+/* =====================================================
+   CLOSE FORM
+===================================================== */
+
+function closeNoticeForm() {
+
+    document.getElementById("noticeModal").style.display = "none";
+
+}
+
+
+/* =====================================================
+   SAVE NOTICE
+===================================================== */
+
+function saveNotice(event) {
+
+    event.preventDefault();
+
+    const date =
+        document.getElementById("noticeDate").value;
+
+    const title =
+        document.getElementById("noticeTitle").value;
+
+    const category =
+        document.getElementById("noticeCategory").value;
+
+    const description =
+        document.getElementById("noticeDescription").value;
+
+    const attachment =
+        document.getElementById("noticeAttachment").value;
+
+    const editIndex =
+        document.getElementById("editRowIndex").value;
+
+    const table =
+        document.getElementById("noticeTableBody");
+
+
+    /* DATE FORMAT */
+
+    let formattedDate = date;
+
+    if (date) {
+
+        const dateObject = new Date(date);
+
+        formattedDate =
+            dateObject.toLocaleDateString(
+                "en-GB",
+                {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric"
+                }
+            );
+
+    }
+
+
+    /* CATEGORY CLASS */
+
+    const categoryClass =
+        category.toLowerCase();
+
+
+    /* ATTACHMENT */
+
+    let attachmentHTML = "";
+
+    if (attachment.trim() !== "") {
+
+        attachmentHTML =
+            `<a href="${attachment}"
+                target="_blank"
+                class="view-btn">
+                View
+            </a>`;
+
+    } else {
+
+        attachmentHTML =
+            `<span class="no-file">—</span>`;
+
+    }
+
+
+    /* EDIT */
+
+    if (editIndex !== "") {
+
+        const row =
+            table.rows[editIndex];
+
+        row.cells[1].innerHTML =
+            `<span class="notice-date">
+                ${formattedDate}
+            </span>`;
+
+        row.cells[2].innerHTML =
+            `<strong>${title}</strong>`;
+
+        row.cells[3].innerHTML =
+            `<span class="category ${categoryClass}">
+                ${category}
+            </span>`;
+
+        row.cells[4].innerText =
+            description;
+
+        row.cells[5].innerHTML =
+            attachmentHTML;
+
+    }
+
+
+    /* ADD NEW */
+
+    else {
+
+        const row =
+            table.insertRow(0);
+
+        const rowNumber =
+            table.rows.length;
+
+        row.innerHTML = `
+
+            <td>
+                ${rowNumber}
+            </td>
+
+            <td>
+                <span class="notice-date">
+                    ${formattedDate}
+                </span>
+            </td>
+
+            <td>
+                <strong>
+                    ${title}
+                </strong>
+            </td>
+
+            <td>
+                <span class="category ${categoryClass}">
+                    ${category}
+                </span>
+            </td>
+
+            <td>
+                ${description}
+            </td>
+
+            <td>
+                ${attachmentHTML}
+            </td>
+
+            <td>
+
+                <div class="action-buttons">
+
+                    <button
+                        class="edit-btn"
+                        onclick="editNotice(this)">
+                        Edit
+                    </button>
+
+                    <button
+                        class="delete-btn"
+                        onclick="deleteNotice(this)">
+                        Delete
+                    </button>
+
+                </div>
+
+            </td>
+        `;
+
+    }
+
+
+    closeNoticeForm();
+
+    updateSerialNumbers();
+
+}
+
+
+/* =====================================================
+   EDIT NOTICE
+===================================================== */
+
+function editNotice(button) {
+
+    const row =
+        button.closest("tr");
+
+    const table =
+        document.getElementById("noticeTableBody");
+
+    const rowIndex =
+        row.rowIndex - 1;
+
+
+    document.getElementById("editRowIndex").value =
+        rowIndex;
+
+
+    document.getElementById("modalTitle").innerText =
+        "Edit Notice";
+
+
+    document.getElementById("noticeTitle").value =
+        row.cells[2].innerText.trim();
+
+
+    document.getElementById("noticeCategory").value =
+        row.cells[3].innerText.trim();
+
+
+    document.getElementById("noticeDescription").value =
+        row.cells[4].innerText.trim();
+
+
+    document.getElementById("noticeAttachment").value =
+        row.cells[5].querySelector("a")?.getAttribute("href") || "";
+
+
+    document.getElementById("noticeModal").style.display =
+        "flex";
+
+}
+
+
+/* =====================================================
+   DELETE NOTICE
+===================================================== */
+
+function deleteNotice(button) {
+
+    if (!confirm("Are you sure you want to delete this notice?")) {
+        return;
+    }
+
+    const row =
+        button.closest("tr");
+
+    row.remove();
+
+    updateSerialNumbers();
+
+}
+
+
+/* =====================================================
+   SERIAL NUMBER
+===================================================== */
+
+function updateSerialNumbers() {
+
+    const rows =
+        document.querySelectorAll(
+            "#noticeTableBody tr"
+        );
+
+    rows.forEach((row, index) => {
+
+        row.cells[0].innerText =
+            index + 1;
+
+    });
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function searchNotice() {
+
+    const search =
+        document
+        .getElementById("searchNotice")
+        .value
+        .toLowerCase();
+
+    const rows =
+        document.querySelectorAll(
+            "#noticeTableBody tr"
+        );
+
+    let visible = 0;
+
+
+    rows.forEach(row => {
+
+        const text =
+            row.innerText.toLowerCase();
+
+        if (text.includes(search)) {
+
+            row.style.display = "";
+            visible++;
+
+        } else {
+
+            row.style.display = "none";
+
+        }
+
+    });
+
+
+    showEmptyMessage(visible);
+
+}
+
+
+/* =====================================================
+   CATEGORY FILTER
+===================================================== */
+
+function filterNotice() {
+
+    const category =
+        document
+        .getElementById("categoryFilter")
+        .value
+        .toLowerCase();
+
+
+    const rows =
+        document.querySelectorAll(
+            "#noticeTableBody tr"
+        );
+
+    let visible = 0;
+
+
+    rows.forEach(row => {
+
+        const rowCategory =
+            row.cells[3].innerText
+            .trim()
+            .toLowerCase();
+
+
+        if (
+            category === "" ||
+            rowCategory === category
+        ) {
+
+            row.style.display = "";
+            visible++;
+
+        } else {
+
+            row.style.display = "none";
+
+        }
+
+    });
+
+
+    showEmptyMessage(visible);
+
+}
+
+
+/* =====================================================
+   EMPTY MESSAGE
+===================================================== */
+
+function showEmptyMessage(count) {
+
+    const empty =
+        document.getElementById("emptyMessage");
+
+    if (count === 0) {
+
+        empty.style.display = "block";
+
+    } else {
+
+        empty.style.display = "none";
+
+    }
+
+}
+
+
+/* =====================================================
+   CLOSE MODAL WHEN CLICK OUTSIDE
+===================================================== */
+
+window.onclick = function(event) {
+
+    const modal =
+        document.getElementById("noticeModal");
+
+    if (event.target === modal) {
+
+        closeNoticeForm();
+
+    }
+
+};
+
+</script>
+
+</body>
+</html>
