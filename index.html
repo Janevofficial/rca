@@ -1,1302 +1,490 @@
-# `notice-board.html`
-
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Development, Bill & Service Agreement</title>
 
-    <meta charset="UTF-8">
+<style>
+    * {
+        box-sizing: border-box;
+    }
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    body {
+        margin: 0;
+        padding: 40px;
+        background: #fff;
+        color: #111;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+    }
 
-    <title>Notice Board | Rose Children Academy</title>
+    .document {
+        width: 100%;
+        max-width: 1140px;
+        margin: 0 auto;
+    }
 
+    .top-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
 
-    <!-- =====================================================
-         GOOGLE FONT
-    ====================================================== -->
+    .academy {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 18px;
+    }
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    .agreement-title {
+        text-align: center;
+        font-size: 19px;
+        font-weight: 700;
+        margin-bottom: 18px;
+    }
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    .website-date {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        margin-bottom: 28px;
+    }
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
+    .divider {
+        border: 0;
+        border-top: 2px solid #999;
+        margin: 0 0 28px;
+    }
 
+    .section-title {
+        font-size: 17px;
+        font-weight: 700;
+        margin-bottom: 24px;
+    }
 
-    <!-- =====================================================
-         CSS
-    ====================================================== -->
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
 
-    <style>
+    th, td {
+        padding: 9px 5px;
+        text-align: left;
+        vertical-align: top;
+    }
 
-        /* =====================================================
-           RESET
-        ====================================================== */
+    th {
+        font-weight: 700;
+        font-size: 16px;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    td {
+        font-size: 16px;
+    }
 
+    .serial {
+        width: 8%;
+    }
 
-        /* =====================================================
-           BODY
-        ====================================================== */
+    .description {
+        width: 72%;
+    }
 
+    .price {
+        width: 20%;
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    .total-row td {
+        padding-top: 18px;
+        font-weight: 700;
+    }
+
+    .total-label {
+        text-align: left;
+        padding-left: 8%;
+    }
+
+    .total-price {
+        text-align: right;
+        font-weight: 700;
+    }
+
+    .summary {
+        margin-top: 18px;
+    }
+
+    .summary p {
+        margin: 12px 0;
+    }
+
+    .summary .bold {
+        font-weight: 700;
+    }
+
+    .note {
+        margin-top: 22px;
+        text-align: left;
+    }
+
+    @media (max-width: 700px) {
         body {
-
-            font-family: "Poppins", Arial, sans-serif;
-
-            background: #f4f7fb;
-
-            color: #1f2937;
-
-            line-height: 1.6;
-
+            padding: 20px 14px;
+            font-size: 14px;
         }
 
-
-        /* =====================================================
-           MAIN PAGE
-        ====================================================== */
-
-        .notice-page {
-
-            width: 94%;
-
-            max-width: 1450px;
-
-            margin: 45px auto;
-
-        }
-
-
-        /* =====================================================
-           HEADER
-        ====================================================== */
-
-        .notice-heading {
-
-            background: #ffffff;
-
-            border: 1px solid #e5e7eb;
-
-            border-radius: 16px;
-
-            padding: 25px 30px;
-
-            margin-bottom: 22px;
-
-            box-shadow:
-                0 6px 25px rgba(0, 0, 0, 0.05);
-
-        }
-
-
-        .heading-left {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 18px;
-
-        }
-
-
-        /* =====================================================
-           ICON
-        ====================================================== */
-
-        .heading-icon {
-
-            width: 60px;
-
-            height: 60px;
-
-            border-radius: 14px;
-
-            background: #eff6ff;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            font-size: 28px;
-
-            flex-shrink: 0;
-
-        }
-
-
-        /* =====================================================
-           SMALL TITLE
-        ====================================================== */
-
-        .heading-label {
-
-            font-size: 11px;
-
-            font-weight: 700;
-
-            letter-spacing: 1.6px;
-
-            color: #2563eb;
-
-            margin-bottom: 3px;
-
-        }
-
-
-        /* =====================================================
-           MAIN TITLE
-        ====================================================== */
-
-        .notice-heading h1 {
-
-            font-size: 30px;
-
-            line-height: 1.3;
-
-            color: #111827;
-
-            font-weight: 700;
-
-        }
-
-
-        .notice-heading p {
-
-            font-size: 13px;
-
-            color: #6b7280;
-
-            margin-top: 4px;
-
-        }
-
-
-        /* =====================================================
-           NOTICE CARD
-        ====================================================== */
-
-        .notice-card {
-
-            background: #ffffff;
-
-            border: 1px solid #e5e7eb;
-
-            border-radius: 16px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 6px 25px rgba(0, 0, 0, 0.04);
-
-        }
-
-
-        /* =====================================================
-           CARD HEADER
-        ====================================================== */
-
-        .notice-card-header {
-
-            padding: 22px 25px;
-
-            border-bottom: 1px solid #e5e7eb;
-
-        }
-
-
-        .notice-card-header h2 {
-
-            font-size: 19px;
-
-            color: #111827;
-
-            font-weight: 600;
-
-        }
-
-
-        .notice-card-header p {
-
+        .top-line {
             font-size: 12px;
+            gap: 20px;
+        }
 
-            color: #6b7280;
+        .academy {
+            font-size: 16px;
+        }
 
-            margin-top: 2px;
+        .agreement-title {
+            font-size: 16px;
+        }
 
+        .website-date {
+            font-size: 13px;
+        }
+
+        .section-title {
+            font-size: 15px;
+        }
+
+        th, td {
+            font-size: 13px;
+            padding: 8px 3px;
         }
 
 
-        /* =====================================================
-           TABLE SCROLL
-        ====================================================== */
-
-        .table-scroll {
-
-            width: 100%;
-
-            overflow-x: auto;
-
-            -webkit-overflow-scrolling: touch;
-
+        .payment-table {
+            min-width: 850px;
         }
 
+        .payment-section {
+            margin-top: 30px;
+            padding-top: 22px;
+        }
 
-        /* =====================================================
-           TABLE
-        ====================================================== */
+        .payment-section-title {
+            font-size: 15px;
+        }
+
+        .payment-intro {
+            font-size: 12px;
+        }
+
+        .payment-summary {
+            justify-content: flex-start;
+            gap: 8px;
+            font-size: 12px;
+        }
 
         .notice-table {
-
-            width: 100%;
-
-            min-width: 1050px;
-
-            border-collapse: collapse;
-
-            table-layout: fixed;
-
+            min-width: 650px;
         }
 
+        .table-wrap {
+            overflow-x: auto;
+        }
+    }
 
-        /* =====================================================
-           TABLE HEADER
-        ====================================================== */
 
-        .notice-table thead {
+    /* =====================================================
+       PAYMENT RECORD SECTION
+    ====================================================== */
 
-            background: #111827;
+    .payment-section {
+        margin-top: 42px;
+        padding-top: 28px;
+        border-top: 2px solid #999;
+    }
 
+    .payment-section-title {
+        font-size: 17px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .payment-intro {
+        margin: 0 0 18px;
+        font-size: 14px;
+        color: #444;
+    }
+
+    .payment-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+
+    .payment-table th,
+    .payment-table td {
+        border: 1px solid #bdbdbd;
+        padding: 10px 8px;
+        vertical-align: middle;
+    }
+
+    .payment-table th {
+        background: #f2f2f2;
+        font-weight: 700;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .payment-table td {
+        font-size: 14px;
+        min-height: 42px;
+    }
+
+    .payment-no {
+        width: 7%;
+    }
+
+    .payment-date {
+        width: 14%;
+    }
+
+    .payment-amount {
+        width: 13%;
+    }
+
+    .payment-method {
+        width: 20%;
+    }
+
+    .payment-id {
+        width: 23%;
+    }
+
+    .payment-remarks {
+        width: 23%;
+    }
+
+    .empty-payment-row td {
+        height: 48px;
+        color: #777;
+    }
+
+    .payment-summary {
+        display: flex;
+        justify-content: flex-end;
+        gap: 28px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+        font-size: 14px;
+    }
+
+    .payment-summary div {
+        padding: 9px 12px;
+        border: 1px solid #ddd;
+        background: #fafafa;
+    }
+
+    @media print {
+        body {
+            padding: 20px;
         }
 
-
-        .notice-table th {
-
-            padding: 14px 15px;
-
-            color: #ffffff;
-
-            font-size: 12px;
-
-            font-weight: 600;
-
-            text-align: left;
-
-            white-space: nowrap;
-
-            border-right: 1px solid rgba(255,255,255,0.08);
-
+        .document {
+            max-width: none;
         }
-
-
-        .notice-table th:last-child {
-
-            border-right: none;
-
-        }
-
-
-        /* =====================================================
-           TABLE BODY
-        ====================================================== */
-
-        .notice-table td {
-
-            padding: 15px;
-
-            font-size: 12.5px;
-
-            color: #374151;
-
-            vertical-align: top;
-
-            border-bottom: 1px solid #e5e7eb;
-
-        }
-
-
-        /* =====================================================
-           HOVER
-        ====================================================== */
-
-        .notice-table tbody tr {
-
-            transition: background 0.2s ease;
-
-        }
-
-
-        .notice-table tbody tr:hover {
-
-            background: #f8fafc;
-
-        }
-
-
-        .notice-table tbody tr:last-child td {
-
-            border-bottom: none;
-
-        }
-
-
-        /* =====================================================
-           COLUMN WIDTH
-        ====================================================== */
-
-        .serial-column {
-
-            width: 70px;
-
-            text-align: center !important;
-
-        }
-
-
-        .date-column {
-
-            width: 130px;
-
-        }
-
-
-        .title-column {
-
-            width: 220px;
-
-        }
-
-
-        .category-column {
-
-            width: 130px;
-
-        }
-
-
-        .details-column {
-
-            width: auto;
-
-        }
-
-
-        .attachment-column {
-
-            width: 120px;
-
-        }
-
-
-        /* =====================================================
-           SERIAL
-        ====================================================== */
-
-        .serial {
-
-            text-align: center;
-
-            font-weight: 600;
-
-            color: #6b7280;
-
-        }
-
-
-        /* =====================================================
-           DATE
-        ====================================================== */
-
-        .notice-date {
-
-            display: inline-block;
-
-            font-size: 12px;
-
-            font-weight: 600;
-
-            color: #374151;
-
-            white-space: nowrap;
-
-        }
-
-
-        /* =====================================================
-           TITLE
-        ====================================================== */
-
-        .notice-title {
-
-            font-weight: 600;
-
-            color: #111827 !important;
-
-            line-height: 1.5;
-
-        }
-
-
-        /* =====================================================
-           DETAILS
-        ====================================================== */
-
-        .notice-details {
-
-            color: #4b5563;
-
-            line-height: 1.7;
-
-        }
-
-
-        /* =====================================================
-           CATEGORY
-        ====================================================== */
-
-        .category {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            padding: 5px 11px;
-
-            border-radius: 20px;
-
-            font-size: 10px;
-
-            font-weight: 600;
-
-            white-space: nowrap;
-
-        }
-
-
-        /* GENERAL */
-
-        .category.general {
-
-            background: #f3f4f6;
-
-            color: #374151;
-
-        }
-
-
-        /* ADMISSION */
-
-        .category.admission {
-
-            background: #dbeafe;
-
-            color: #1d4ed8;
-
-        }
-
-
-        /* EXAMINATION */
-
-        .category.examination {
-
-            background: #fef3c7;
-
-            color: #92400e;
-
-        }
-
-
-        /* HOLIDAY */
-
-        .category.holiday {
-
-            background: #dcfce7;
-
-            color: #166534;
-
-        }
-
-
-        /* EVENT */
-
-        .category.event {
-
-            background: #ede9fe;
-
-            color: #6d28d9;
-
-        }
-
-
-        /* IMPORTANT */
-
-        .category.important {
-
-            background: #fee2e2;
-
-            color: #b91c1c;
-
-        }
-
-
-        /* =====================================================
-           PDF / VIEW BUTTON
-        ====================================================== */
-
-        .view-button {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            padding: 7px 12px;
-
-            border-radius: 6px;
-
-            background: #eff6ff;
-
-            color: #2563eb;
-
-            text-decoration: none;
-
-            font-size: 11px;
-
-            font-weight: 600;
-
-            white-space: nowrap;
-
-            transition: all 0.2s ease;
-
-        }
-
-
-        .view-button:hover {
-
-            background: #2563eb;
-
-            color: #ffffff;
-
-        }
-
-
-        /* =====================================================
-           NO ATTACHMENT
-        ====================================================== */
-
-        .no-attachment {
-
-            color: #9ca3af;
-
-            font-size: 13px;
-
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ====================================================== */
-
-        .notice-footer {
-
-            padding: 15px 20px;
-
-            background: #f8fafc;
-
-            border-top: 1px solid #e5e7eb;
-
-            color: #6b7280;
-
-            font-size: 11px;
-
-        }
-
-
-        /* =====================================================
-           SCROLLBAR
-        ====================================================== */
-
-        .table-scroll::-webkit-scrollbar {
-
-            height: 7px;
-
-        }
-
-
-        .table-scroll::-webkit-scrollbar-track {
-
-            background: #f1f5f9;
-
-        }
-
-
-        .table-scroll::-webkit-scrollbar-thumb {
-
-            background: #cbd5e1;
-
-            border-radius: 10px;
-
-        }
-
-
-        .table-scroll::-webkit-scrollbar-thumb:hover {
-
-            background: #94a3b8;
-
-        }
-
-
-        /* =====================================================
-           TABLET
-        ====================================================== */
-
-        @media (max-width: 900px) {
-
-            .notice-page {
-
-                width: 95%;
-
-                margin: 30px auto;
-
-            }
-
-
-            .notice-heading {
-
-                padding: 22px;
-
-            }
-
-
-            .notice-heading h1 {
-
-                font-size: 27px;
-
-            }
-
-        }
-
-
-        /* =====================================================
-           MOBILE
-        ====================================================== */
-
-        @media (max-width: 600px) {
-
-            .notice-page {
-
-                width: 94%;
-
-                margin: 20px auto;
-
-            }
-
-
-            .notice-heading {
-
-                padding: 18px;
-
-                border-radius: 12px;
-
-            }
-
-
-            .heading-left {
-
-                gap: 12px;
-
-            }
-
-
-            .heading-icon {
-
-                width: 48px;
-
-                height: 48px;
-
-                border-radius: 11px;
-
-                font-size: 22px;
-
-            }
-
-
-            .heading-label {
-
-                font-size: 9px;
-
-                letter-spacing: 1px;
-
-            }
-
-
-            .notice-heading h1 {
-
-                font-size: 22px;
-
-            }
-
-
-            .notice-heading p {
-
-                font-size: 11px;
-
-            }
-
-
-            .notice-card {
-
-                border-radius: 12px;
-
-            }
-
-
-            .notice-card-header {
-
-                padding: 17px;
-
-            }
-
-
-            .notice-card-header h2 {
-
-                font-size: 17px;
-
-            }
-
-
-            .notice-card-header p {
-
-                font-size: 11px;
-
-            }
-
-
-            /*
-             * Mobile पर table horizontal scroll होगी
-             * ताकि सभी columns सही दिखाई दें।
-             */
-
-            .notice-table {
-
-                min-width: 1000px;
-
-            }
-
-        }
-
-
-        /* =====================================================
-           SMALL MOBILE
-        ====================================================== */
-
-        @media (max-width: 400px) {
-
-            .notice-heading h1 {
-
-                font-size: 20px;
-
-            }
-
-
-            .heading-icon {
-
-                width: 44px;
-
-                height: 44px;
-
-                font-size: 20px;
-
-            }
-
-        }
-
-    </style>
-
+    }
+</style>
 </head>
-
 
 <body>
 
+<div class="document">
+
+    <div class="top-line">
+        <div></div>
+        <div>Website developer - kitabnomy and team</div>
+    </div>
+
+    <div class="academy">
+        ROSE CHILDREN ACADEMY
+    </div>
+
+    <div class="agreement-title">
+        WEBSITE DEVELOPMENT, BILL &amp; SERVICE AGREEMENT
+    </div>
+
+    <div class="website-date">
+        <div>
+            <strong>Website:</strong> rosechildrenacademy.in (For One Year)
+        </div>
+        <div>
+            <strong>Date:</strong> 08/08/2026
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-title">
+        1. PRICE DETAILS
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th class="serial">S. No.</th>
+                    <th class="description">Description</th>
+                    <th class="price">Price</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Domain Name Registration – 1 Year (Recurring)</td>
+                    <td class="price">+ ₹899.00</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>Hosting – Web Economy – Linux cPanel – 1 Year (Recurring)</td>
+                    <td class="price">+ ₹2,388.00</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Website Design &amp; Development – Complete Website (only first Time)</td>
+                    <td class="price">+ ₹6,713.00</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>First Month Maintenance Fee</td>
+                    <td class="price">+ ₹2000</td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>Discount</td>
+                    <td class="price">- ₹2000</td>
+                </tr>
+
+                <tr class="total-row">
+                    <td></td>
+                    <td class="total-label">TOTAL PROJECT PRICE</td>
+                    <td class="total-price">₹10,000.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 
     <!-- =====================================================
-         MAIN NOTICE PAGE
+         PAYMENT RECORD / FUTURE PAYMENT ENTRIES
     ====================================================== -->
 
-    <div class="notice-page">
+    <div class="payment-section">
 
-
-        <!-- =================================================
-             PAGE HEADER
-        ================================================== -->
-
-        <div class="notice-heading">
-
-            <div class="heading-left">
-
-                <div class="heading-icon">
-                    📢
-                </div>
-
-
-                <div>
-
-                    <div class="heading-label">
-                        SCHOOL INFORMATION
-                    </div>
-
-
-                    <h1>
-                        Notice Board
-                    </h1>
-
-
-                    <p>
-                        Latest notices, announcements and
-                        important information
-                    </p>
-
-                </div>
-
-            </div>
-
+        <div class="payment-section-title">
+            2. PAYMENT RECORD
         </div>
 
+        <p class="payment-intro">
+            Future payments can be recorded below with the payment date,
+            amount, transaction method and transaction ID.
+        </p>
 
+        <div class="table-wrap">
+            <table class="payment-table">
 
-        <!-- =================================================
-             NOTICE CARD
-        ================================================== -->
+                <thead>
+                    <tr>
+                        <th class="payment-no">S. No.</th>
+                        <th class="payment-date">Date</th>
+                        <th class="payment-amount">Amount</th>
+                        <th class="payment-method">Transaction Method</th>
+                        <th class="payment-id">Transaction ID / UTR</th>
+                        <th class="payment-remarks">Remarks</th>
+                    </tr>
+                </thead>
 
-        <div class="notice-card">
+                <tbody>
 
+                    <!--
+                    FUTURE PAYMENT ENTRY EXAMPLE
 
-            <!-- =================================================
-                 CARD HEADER
-            ================================================== -->
+                    <tr>
+                        <td>1</td>
+                        <td>DD/MM/YYYY</td>
+                        <td>₹0.00</td>
+                        <td>UPI / Bank Transfer / Cash</td>
+                        <td>TRANSACTION-ID</td>
+                        <td>Payment received</td>
+                    </tr>
+                    -->
 
-            <div class="notice-card-header">
+                    <tr class="empty-payment-row">
+                        <td>1</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
 
-                <h2>
-                    Latest Notices
-                </h2>
+                </tbody>
 
-                <p>
-                    Please check this section regularly for
-                    school updates.
-                </p>
+            </table>
+        </div>
 
+        <div class="payment-summary">
+            <div>
+                <strong>Total Project Price:</strong>
+                ₹10,000.00
             </div>
 
-
-
-            <!-- =================================================
-                 NOTICE TABLE
-            ================================================== -->
-
-            <div class="table-scroll">
-
-                <table class="notice-table">
-
-
-                    <!-- =================================================
-                         TABLE HEADER
-                    ================================================== -->
-
-                    <thead>
-
-                        <tr>
-
-                            <th class="serial-column">
-                                S.No.
-                            </th>
-
-
-                            <th class="date-column">
-                                Date
-                            </th>
-
-
-                            <th class="title-column">
-                                Notice Title
-                            </th>
-
-
-                            <th class="category-column">
-                                Category
-                            </th>
-
-
-                            <th class="details-column">
-                                Notice Details
-                            </th>
-
-
-                            <th class="attachment-column">
-                                Attachment
-                            </th>
-
-                        </tr>
-
-                    </thead>
-
-
-
-                    <!-- =================================================
-                         TABLE BODY
-                    ================================================== -->
-
-                    <tbody>
-
-
-                        <!-- =================================================
-                             NOTICE 1
-                             NEWEST NOTICE ऊपर रखें
-                        ================================================== -->
-
-                        <tr>
-
-                            <td class="serial">
-                                1
-                            </td>
-
-
-                            <td>
-
-                                <span class="notice-date">
-                                    13 Aug 2026
-                                </span>
-
-                            </td>
-
-
-                            <td class="notice-title">
-
-                                Independence Day Celebration
-
-                            </td>
-
-
-                            <td>
-
-                                <span class="category event">
-                                    Event
-                                </span>
-
-                            </td>
-
-
-                            <td class="notice-details">
-
-                                Independence Day celebration
-                                will be organized in the school
-                                premises. All students are
-                                requested to attend the programme
-                                in proper school uniform.
-
-                            </td>
-
-
-                            <td>
-
-                                <a
-                                    href="notices/independence-day.pdf"
-                                    target="_blank"
-                                    class="view-button">
-
-                                    View PDF
-
-                                </a>
-
-                            </td>
-
-                        </tr>
-
-
-
-                        <!-- =================================================
-                             NOTICE 2
-                        ================================================== -->
-
-                        <tr>
-
-                            <td class="serial">
-                                2
-                            </td>
-
-
-                            <td>
-
-                                <span class="notice-date">
-                                    10 Aug 2026
-                                </span>
-
-                            </td>
-
-
-                            <td class="notice-title">
-
-                                School Holiday
-
-                            </td>
-
-
-                            <td>
-
-                                <span class="category holiday">
-                                    Holiday
-                                </span>
-
-                            </td>
-
-
-                            <td class="notice-details">
-
-                                The school will remain closed
-                                on 15 August 2026 on account of
-                                Independence Day.
-
-                            </td>
-
-
-                            <td>
-
-                                <span class="no-attachment">
-                                    —
-                                </span>
-
-                            </td>
-
-                        </tr>
-
-
-
-                        <!-- =================================================
-                             NOTICE 3
-                        ================================================== -->
-
-                        <tr>
-
-                            <td class="serial">
-                                3
-                            </td>
-
-
-                            <td>
-
-                                <span class="notice-date">
-                                    08 Aug 2026
-                                </span>
-
-                            </td>
-
-
-                            <td class="notice-title">
-
-                                Unit Test Examination
-
-                            </td>
-
-
-                            <td>
-
-                                <span class="category examination">
-                                    Examination
-                                </span>
-
-                            </td>
-
-
-                            <td class="notice-details">
-
-                                Unit Test examination will begin
-                                from 20 August 2026. Students are
-                                advised to prepare according to
-                                the examination schedule.
-
-                            </td>
-
-
-                            <td>
-
-                                <a
-                                    href="notices/examination-schedule.pdf"
-                                    target="_blank"
-                                    class="view-button">
-
-                                    View PDF
-
-                                </a>
-
-                            </td>
-
-                        </tr>
-
-
-
-                        <!-- =================================================
-                             NOTICE 4
-                        ================================================== -->
-
-                        <tr>
-
-                            <td class="serial">
-                                4
-                            </td>
-
-
-                            <td>
-
-                                <span class="notice-date">
-                                    05 Aug 2026
-                                </span>
-
-                            </td>
-
-
-                            <td class="notice-title">
-
-                                Admission Notice 2026-27
-
-                            </td>
-
-
-                            <td>
-
-                                <span class="category admission">
-                                    Admission
-                                </span>
-
-                            </td>
-
-
-                            <td class="notice-details">
-
-                                Admission process for the
-                                academic session 2026-27
-                                is now open. Parents may
-                                contact the school office
-                                for further information.
-
-                            </td>
-
-
-                            <td>
-
-                                <a
-                                    href="notices/admission-2026-27.pdf"
-                                    target="_blank"
-                                    class="view-button">
-
-                                    View PDF
-
-                                </a>
-
-                            </td>
-
-                        </tr>
-
-
-
-                        <!-- =================================================
-                             NOTICE 5
-                        ================================================== -->
-
-                        <tr>
-
-                            <td class="serial">
-                                5
-                            </td>
-
-
-                            <td>
-
-                                <span class="notice-date">
-                                    01 Aug 2026
-                                </span>
-
-                            </td>
-
-
-                            <td class="notice-title">
-
-                                Parent Teacher Meeting
-
-                            </td>
-
-
-                            <td>
-
-                                <span class="category general">
-                                    General
-                                </span>
-
-                            </td>
-
-
-                            <td class="notice-details">
-
-                                Parent Teacher Meeting will be
-                                held on 25 August 2026. Parents
-                                are requested to attend the
-                                meeting on time.
-
-                            </td>
-
-
-                            <td>
-
-                                <span class="no-attachment">
-                                    —
-                                </span>
-
-                            </td>
-
-                        </tr>
-
-
-                    </tbody>
-
-                </table>
-
+            <div>
+                <strong>Total Paid:</strong>
+                ₹0.00
             </div>
 
-
-
-            <!-- =================================================
-                 FOOTER
-            ================================================== -->
-
-            <div class="notice-footer">
-
-                📌 Please check the Notice Board regularly
-                for latest updates.
-
+            <div>
+                <strong>Balance Due:</strong>
+                ₹10,000.00
             </div>
-
-
         </div>
 
     </div>
 
+    <div class="summary">
+
+        <p>
+            <span class="bold">Total Payable Amount:</span>
+            ₹10,000/-
+        </p>
+
+        <p>
+            <span class="bold">In Words:</span>
+            Ten Thousand Rupees Only.
+        </p>
+
+        <p class="note">
+            The above amount includes the website development charges along
+            with the first-year domain registration and hosting charges
+            mentioned above.
+        </p>
+
+    </div>
+
+</div>
 
 </body>
-
 </html>
-```
