@@ -6,301 +6,1077 @@
 <title>Website Development, Bill & Service Agreement</title>
 
 <style>
-    * {
-        box-sizing: border-box;
-    }
+   /* =========================================================
+   ROSE CHILDREN ACADEMY
+   BILL & SERVICE AGREEMENT
+   ADMIN DASHBOARD STYLE UI
+========================================================= */
+
+:root {
+    --primary: #123b73;
+    --primary-dark: #0d2d59;
+
+    --secondary: #e45c32;
+    --secondary-dark: #cc4d29;
+
+    --text: #213d60;
+    --muted: #7d8998;
+
+    --border: #e4eaf1;
+    --background: #f5f8fc;
+
+    --white: #ffffff;
+
+    --blue-soft: #edf3fa;
+    --orange-soft: #fff0eb;
+
+    --success: #16845a;
+    --success-soft: #ecf8f2;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    padding: 35px 20px;
+
+    font-family:
+        "Poppins",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   MAIN DOCUMENT
+========================================================= */
+
+.document {
+
+    width: min(1200px, 92%);
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 7px 25px rgba(20, 40, 70, 0.055);
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.top-line {
+
+    min-height: 46px;
+
+    padding: 10px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: .3px;
+}
+
+
+.top-line div:last-child {
+
+    color: #dbe8f7;
+
+}
+
+
+/* =========================================================
+   ACADEMY HEADER
+========================================================= */
+
+.academy {
+
+    padding: 28px 25px 5px;
+
+    text-align: center;
+
+    color: var(--primary);
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    line-height: 1.3;
+
+    letter-spacing: .8px;
+}
+
+
+.academy::after {
+
+    content: "";
+
+    display: block;
+
+    width: 55px;
+
+    height: 3px;
+
+    margin: 9px auto 0;
+
+    border-radius: 10px;
+
+    background: var(--secondary);
+}
+
+
+/* =========================================================
+   AGREEMENT TITLE
+========================================================= */
+
+.agreement-title {
+
+    padding: 5px 25px 22px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: .7px;
+}
+
+
+/* =========================================================
+   WEBSITE / DATE BOX
+========================================================= */
+
+.website-date {
+
+    margin: 0 25px 25px;
+
+    padding: 14px 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border: 1px solid var(--border);
+
+    border-left: 4px solid var(--secondary);
+
+    border-radius: 8px;
+
+    background: #f8fafc;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+
+.website-date strong {
+
+    color: var(--primary);
+
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.divider {
+
+    height: 1px;
+
+    margin: 0 25px 25px;
+
+    border: 0;
+
+    background: var(--border);
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-title,
+.payment-section-title {
+
+    margin: 0 25px 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--primary);
+
+    font-size: 14px;
+
+    font-weight: 800;
+}
+
+
+.section-title::before,
+.payment-section-title::before {
+
+    content: "";
+
+    width: 4px;
+
+    height: 22px;
+
+    flex: 0 0 4px;
+
+    border-radius: 5px;
+
+    background: var(--secondary);
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
+
+.table-wrap {
+
+    width: calc(100% - 50px);
+
+    margin: 0 25px;
+
+    overflow-x: auto;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+th {
+
+    padding: 12px 11px;
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+    border: 0;
+
+    text-align: left;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    line-height: 1.4;
+}
+
+
+th:first-child {
+
+    border-top-left-radius: 7px;
+}
+
+
+th:last-child {
+
+    border-top-right-radius: 7px;
+}
+
+
+/* =========================================================
+   TABLE BODY
+========================================================= */
+
+td {
+
+    padding: 11px;
+
+    background: #ffffff;
+
+    color: var(--text);
+
+    border-bottom: 1px solid var(--border);
+
+    font-size: 10px;
+
+    vertical-align: middle;
+}
+
+
+tbody tr:nth-child(even) td {
+
+    background: #f8fafc;
+}
+
+
+tbody tr:hover td {
+
+    background: #f1f6fb;
+
+    transition: .2s ease;
+}
+
+
+tbody tr:last-child td {
+
+    border-bottom: 0;
+}
+
+
+/* =========================================================
+   SERIAL
+========================================================= */
+
+.serial {
+
+    width: 9%;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.description {
+
+    width: 66%;
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.price {
+
+    width: 25%;
+
+    text-align: right;
+
+    white-space: nowrap;
+
+    color: var(--primary);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TOTAL ROW
+========================================================= */
+
+.total-row td {
+
+    background: #f1f5f9 !important;
+
+    border-top: 2px solid var(--primary);
+
+    border-bottom: 0;
+
+    padding-top: 14px;
+
+    padding-bottom: 14px;
+
+    font-weight: 800;
+}
+
+
+.total-label {
+
+    padding-left: 9%;
+
+    color: var(--primary);
+
+    text-align: left;
+
+    letter-spacing: .3px;
+}
+
+
+.total-price {
+
+    color: var(--secondary);
+
+    text-align: right;
+
+    font-size: 14px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   PAYMENT SECTION
+========================================================= */
+
+.payment-section {
+
+    margin: 30px 25px 0;
+
+    padding-top: 25px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.payment-section .payment-section-title {
+
+    margin-left: 0;
+
+    margin-right: 0;
+
+    margin-bottom: 5px;
+}
+
+
+.payment-intro {
+
+    margin-bottom: 15px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PAYMENT TABLE
+========================================================= */
+
+.payment-table {
+
+    min-width: 800px;
+
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+.payment-table th {
+
+    background: var(--secondary);
+
+    font-size: 9px;
+}
+
+
+.payment-table td {
+
+    font-size: 9px;
+
+    padding: 10px;
+
+    border: 1px solid var(--border);
+}
+
+
+.payment-table tbody tr:nth-child(even) td {
+
+    background: #fff9f7;
+}
+
+
+.payment-table tbody tr:hover td {
+
+    background: #fff3ef;
+}
+
+
+/* =========================================================
+   PAYMENT WIDTHS
+========================================================= */
+
+.payment-no {
+    width: 7%;
+}
+
+.payment-date {
+    width: 14%;
+}
+
+.payment-amount {
+    width: 13%;
+}
+
+.payment-method {
+    width: 20%;
+}
+
+.payment-id {
+    width: 23%;
+}
+
+.payment-remarks {
+    width: 23%;
+}
+
+
+/* =========================================================
+   EMPTY PAYMENT ROW
+========================================================= */
+
+.empty-payment-row td {
+
+    height: 50px;
+
+    color: #a2acb8;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   PAYMENT SUMMARY
+========================================================= */
+
+.payment-summary {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-top: 16px;
+}
+
+
+.payment-summary div {
+
+    min-height: 60px;
+
+    padding: 12px 15px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    box-shadow:
+        0 4px 15px rgba(20, 40, 70, 0.035);
+}
+
+
+.payment-summary strong {
+
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: var(--primary);
+
+    font-size: 9px;
+}
+
+
+/* TOTAL PROJECT */
+
+.payment-summary div:nth-child(1) {
+
+    border-top: 3px solid var(--primary);
+
+    background: #f7f9fc;
+}
+
+
+/* TOTAL PAID */
+
+.payment-summary div:nth-child(2) {
+
+    border-top: 3px solid var(--success);
+
+    background: var(--success-soft);
+}
+
+
+.payment-summary div:nth-child(2) strong {
+
+    color: var(--success);
+}
+
+
+/* BALANCE */
+
+.payment-summary div:nth-child(3) {
+
+    border-top: 3px solid var(--secondary);
+
+    background: var(--orange-soft);
+}
+
+
+.payment-summary div:nth-child(3) strong {
+
+    color: var(--secondary);
+}
+
+
+/* =========================================================
+   FINAL SUMMARY
+========================================================= */
+
+.summary {
+
+    margin: 25px;
+
+    padding: 18px 20px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+}
+
+
+.summary p {
+
+    margin: 8px 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+.summary .bold {
+
+    color: var(--primary);
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   IMPORTANT NOTE
+========================================================= */
+
+.note {
+
+    margin-top: 15px !important;
+
+    padding: 12px 14px;
+
+    border-left: 4px solid var(--secondary);
+
+    border-radius: 6px;
+
+    background: var(--orange-soft);
+
+    color: #7b4938 !important;
+
+    font-size: 9px !important;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.table-wrap::-webkit-scrollbar {
+
+    height: 6px;
+}
+
+
+.table-wrap::-webkit-scrollbar-track {
+
+    background: #eef2f6;
+}
+
+
+.table-wrap::-webkit-scrollbar-thumb {
+
+    background: var(--primary);
+
+    border-radius: 20px;
+}
+
+
+.table-wrap::-webkit-scrollbar-thumb:hover {
+
+    background: var(--secondary);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 750px) {
 
     body {
-        margin: 0;
-        padding: 40px;
-        background: #fff;
-        color: #111;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 16px;
-        line-height: 1.5;
+
+        padding: 15px 10px;
+
+        font-size: 12px;
     }
+
 
     .document {
+
         width: 100%;
-        max-width: 1140px;
-        margin: 0 auto;
+
+        border-radius: 11px;
     }
+
 
     .top-line {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        font-size: 15px;
-        margin-bottom: 8px;
+
+        min-height: 40px;
+
+        padding: 8px 14px;
+
+        font-size: 8px;
     }
+
 
     .academy {
-        text-align: center;
-        font-size: 18px;
-        font-weight: 700;
-        margin-bottom: 18px;
+
+        padding: 23px 15px 4px;
+
+        font-size: 19px;
+
+        letter-spacing: .4px;
     }
+
 
     .agreement-title {
-        text-align: center;
-        font-size: 19px;
-        font-weight: 700;
-        margin-bottom: 18px;
+
+        padding: 5px 15px 18px;
+
+        font-size: 10px;
+
+        line-height: 1.6;
     }
+
 
     .website-date {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-weight: 600;
-        margin-bottom: 28px;
+
+        margin: 0 15px 20px;
+
+        padding: 12px 13px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 5px;
+
+        font-size: 9px;
     }
+
 
     .divider {
-        border: 0;
-        border-top: 2px solid #999;
-        margin: 0 0 28px;
+
+        margin: 0 15px 20px;
     }
 
-    .section-title {
-        font-size: 17px;
-        font-weight: 700;
-        margin-bottom: 24px;
+
+    .section-title,
+    .payment-section-title {
+
+        margin-left: 15px;
+
+        margin-right: 15px;
+
+        font-size: 12px;
     }
+
+
+    .section-title::before,
+    .payment-section-title::before {
+
+        width: 3px;
+
+        height: 19px;
+    }
+
+
+    .table-wrap {
+
+        width: calc(100% - 30px);
+
+        margin-left: 15px;
+
+        margin-right: 15px;
+
+        border-radius: 7px;
+
+        overflow-x: auto;
+    }
+
 
     table {
-        width: 100%;
-        border-collapse: collapse;
-        table-layout: fixed;
+
+        min-width: 620px;
     }
 
-    th, td {
-        padding: 9px 5px;
-        text-align: left;
-        vertical-align: top;
-    }
 
     th {
-        font-weight: 700;
-        font-size: 16px;
+
+        padding: 10px 8px;
+
+        font-size: 9px;
     }
+
 
     td {
+
+        padding: 9px 8px;
+
+        font-size: 9px;
+    }
+
+
+    .payment-section {
+
+        margin-left: 15px;
+
+        margin-right: 15px;
+
+        padding-top: 20px;
+    }
+
+
+    .payment-section .payment-section-title {
+
+        margin-left: 0;
+
+        margin-right: 0;
+    }
+
+
+    .payment-intro {
+
+        font-size: 9px;
+
+        line-height: 1.7;
+    }
+
+
+    .payment-table {
+
+        min-width: 800px;
+    }
+
+
+    .payment-summary {
+
+        grid-template-columns: 1fr;
+
+        gap: 9px;
+    }
+
+
+    .payment-summary div {
+
+        min-height: 52px;
+
+        padding: 10px 13px;
+
+        font-size: 9px;
+    }
+
+
+    .summary {
+
+        margin: 18px 15px;
+
+        padding: 14px;
+    }
+
+
+    .summary p {
+
+        font-size: 9px;
+
+        line-height: 1.7;
+    }
+
+
+    .note {
+
+        font-size: 8px !important;
+
+        padding: 10px 11px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    body {
+
+        padding: 7px;
+    }
+
+
+    .academy {
+
         font-size: 16px;
     }
 
-    .serial {
-        width: 8%;
-    }
 
-    .description {
-        width: 72%;
-    }
+    .agreement-title {
 
-    .price {
-        width: 20%;
-        text-align: right;
-        white-space: nowrap;
-    }
-
-    .total-row td {
-        padding-top: 18px;
-        font-weight: 700;
-    }
-
-    .total-label {
-        text-align: left;
-        padding-left: 8%;
-    }
-
-    .total-price {
-        text-align: right;
-        font-weight: 700;
-    }
-
-    .summary {
-        margin-top: 18px;
-    }
-
-    .summary p {
-        margin: 12px 0;
-    }
-
-    .summary .bold {
-        font-weight: 700;
-    }
-
-    .note {
-        margin-top: 22px;
-        text-align: left;
-    }
-
-    @media (max-width: 700px) {
-        body {
-            padding: 20px 14px;
-            font-size: 14px;
-        }
-
-        .top-line {
-            font-size: 12px;
-            gap: 20px;
-        }
-
-        .academy {
-            font-size: 16px;
-        }
-
-        .agreement-title {
-            font-size: 16px;
-        }
-
-        .website-date {
-            font-size: 13px;
-        }
-
-        .section-title {
-            font-size: 15px;
-        }
-
-        th, td {
-            font-size: 13px;
-            padding: 8px 3px;
-        }
-
-
-        .payment-table {
-            min-width: 850px;
-        }
-
-        .payment-section {
-            margin-top: 30px;
-            padding-top: 22px;
-        }
-
-        .payment-section-title {
-            font-size: 15px;
-        }
-
-        .payment-intro {
-            font-size: 12px;
-        }
-
-        .payment-summary {
-            justify-content: flex-start;
-            gap: 8px;
-            font-size: 12px;
-        }
-
-        .notice-table {
-            min-width: 650px;
-        }
-
-        .table-wrap {
-            overflow-x: auto;
-        }
+        font-size: 9px;
     }
 
 
-    /* =====================================================
-       PAYMENT RECORD SECTION
-    ====================================================== */
+    .website-date {
 
-    .payment-section {
-        margin-top: 42px;
-        padding-top: 28px;
-        border-top: 2px solid #999;
+        font-size: 8px;
     }
 
+
+    .section-title,
     .payment-section-title {
-        font-size: 17px;
-        font-weight: 700;
-        margin-bottom: 8px;
+
+        font-size: 11px;
     }
 
-    .payment-intro {
-        margin: 0 0 18px;
-        font-size: 14px;
-        color: #444;
+}
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+
+    body {
+
+        padding: 0;
+
+        background: #ffffff;
     }
+
+
+    .document {
+
+        width: 100%;
+
+        max-width: none;
+
+        border: 0;
+
+        border-radius: 0;
+
+        box-shadow: none;
+    }
+
+
+    .table-wrap {
+
+        overflow: visible;
+    }
+
 
     .payment-table {
-        width: 100%;
-        border-collapse: collapse;
-        table-layout: fixed;
+
+        min-width: 0;
     }
 
-    .payment-table th,
-    .payment-table td {
-        border: 1px solid #bdbdbd;
-        padding: 10px 8px;
-        vertical-align: middle;
-    }
-
-    .payment-table th {
-        background: #f2f2f2;
-        font-weight: 700;
-        font-size: 14px;
-        text-align: left;
-    }
-
-    .payment-table td {
-        font-size: 14px;
-        min-height: 42px;
-    }
-
-    .payment-no {
-        width: 7%;
-    }
-
-    .payment-date {
-        width: 14%;
-    }
-
-    .payment-amount {
-        width: 13%;
-    }
-
-    .payment-method {
-        width: 20%;
-    }
-
-    .payment-id {
-        width: 23%;
-    }
-
-    .payment-remarks {
-        width: 23%;
-    }
-
-    .empty-payment-row td {
-        height: 48px;
-        color: #777;
-    }
-
-    .payment-summary {
-        display: flex;
-        justify-content: flex-end;
-        gap: 28px;
-        flex-wrap: wrap;
-        margin-top: 16px;
-        font-size: 14px;
-    }
-
-    .payment-summary div {
-        padding: 9px 12px;
-        border: 1px solid #ddd;
-        background: #fafafa;
-    }
-
-    @media print {
-        body {
-            padding: 20px;
-        }
-
-        .document {
-            max-width: none;
-        }
-    }
+}
 </style>
 </head>
 
