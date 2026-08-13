@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Website Development, Bill & Service Agreement</title>
 
 <style>
-   /* =========================================================
+
+/* =========================================================
    ROSE CHILDREN ACADEMY
    BILL & SERVICE AGREEMENT
-   ADMIN DASHBOARD STYLE UI
+   PAYMENT ENABLED VERSION
 ========================================================= */
 
 :root {
+
     --primary: #123b73;
     --primary-dark: #0d2d59;
 
@@ -27,11 +31,12 @@
 
     --white: #ffffff;
 
-    --blue-soft: #edf3fa;
+    --success: #16845a;
+    --success-dark: #0f704c;
+    --success-soft: #ecf8f2;
+
     --orange-soft: #fff0eb;
 
-    --success: #16845a;
-    --success-soft: #ecf8f2;
 }
 
 
@@ -45,13 +50,12 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
+
     min-height: 100vh;
 
     padding: 35px 20px;
@@ -122,11 +126,8 @@ body {
     letter-spacing: .3px;
 }
 
-
 .top-line div:last-child {
-
     color: #dbe8f7;
-
 }
 
 
@@ -150,7 +151,6 @@ body {
 
     letter-spacing: .8px;
 }
-
 
 .academy::after {
 
@@ -223,11 +223,8 @@ body {
     font-weight: 600;
 }
 
-
 .website-date strong {
-
     color: var(--primary);
-
 }
 
 
@@ -268,7 +265,6 @@ body {
 
     font-weight: 800;
 }
-
 
 .section-title::before,
 .payment-section-title::before {
@@ -344,15 +340,11 @@ th {
     line-height: 1.4;
 }
 
-
 th:first-child {
-
     border-top-left-radius: 7px;
 }
 
-
 th:last-child {
-
     border-top-right-radius: 7px;
 }
 
@@ -376,12 +368,9 @@ td {
     vertical-align: middle;
 }
 
-
 tbody tr:nth-child(even) td {
-
     background: #f8fafc;
 }
-
 
 tbody tr:hover td {
 
@@ -390,15 +379,13 @@ tbody tr:hover td {
     transition: .2s ease;
 }
 
-
 tbody tr:last-child td {
-
     border-bottom: 0;
 }
 
 
 /* =========================================================
-   SERIAL
+   PRICE TABLE
 ========================================================= */
 
 .serial {
@@ -408,20 +395,10 @@ tbody tr:last-child td {
     text-align: center;
 }
 
-
-/* =========================================================
-   DESCRIPTION
-========================================================= */
-
 .description {
 
     width: 66%;
 }
-
-
-/* =========================================================
-   PRICE
-========================================================= */
 
 .price {
 
@@ -456,7 +433,6 @@ tbody tr:last-child td {
     font-weight: 800;
 }
 
-
 .total-label {
 
     padding-left: 9%;
@@ -467,7 +443,6 @@ tbody tr:last-child td {
 
     letter-spacing: .3px;
 }
-
 
 .total-price {
 
@@ -494,7 +469,6 @@ tbody tr:last-child td {
     border-top: 1px solid var(--border);
 }
 
-
 .payment-section .payment-section-title {
 
     margin-left: 0;
@@ -503,7 +477,6 @@ tbody tr:last-child td {
 
     margin-bottom: 5px;
 }
-
 
 .payment-intro {
 
@@ -530,14 +503,12 @@ tbody tr:last-child td {
     border-collapse: collapse;
 }
 
-
 .payment-table th {
 
     background: var(--secondary);
 
     font-size: 9px;
 }
-
 
 .payment-table td {
 
@@ -548,15 +519,11 @@ tbody tr:last-child td {
     border: 1px solid var(--border);
 }
 
-
 .payment-table tbody tr:nth-child(even) td {
-
     background: #fff9f7;
 }
 
-
 .payment-table tbody tr:hover td {
-
     background: #fff3ef;
 }
 
@@ -591,7 +558,7 @@ tbody tr:last-child td {
 
 
 /* =========================================================
-   EMPTY PAYMENT ROW
+   PAYMENT ROW
 ========================================================= */
 
 .empty-payment-row td {
@@ -620,7 +587,6 @@ tbody tr:last-child td {
     margin-top: 16px;
 }
 
-
 .payment-summary div {
 
     min-height: 60px;
@@ -646,7 +612,6 @@ tbody tr:last-child td {
     box-shadow:
         0 4px 15px rgba(20, 40, 70, 0.035);
 }
-
 
 .payment-summary strong {
 
@@ -679,9 +644,7 @@ tbody tr:last-child td {
     background: var(--success-soft);
 }
 
-
 .payment-summary div:nth-child(2) strong {
-
     color: var(--success);
 }
 
@@ -695,9 +658,7 @@ tbody tr:last-child td {
     background: var(--orange-soft);
 }
 
-
 .payment-summary div:nth-child(3) strong {
-
     color: var(--secondary);
 }
 
@@ -719,7 +680,6 @@ tbody tr:last-child td {
     background: #f8fafc;
 }
 
-
 .summary p {
 
     margin: 8px 0;
@@ -728,7 +688,6 @@ tbody tr:last-child td {
 
     font-size: 10px;
 }
-
 
 .summary .bold {
 
@@ -763,20 +722,355 @@ tbody tr:last-child td {
 
 
 /* =========================================================
+   PAY NOW SECTION
+========================================================= */
+
+.pay-now-section {
+
+    margin: 25px;
+
+    padding: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border: 1px solid #dbe5f0;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #f8fafc,
+            #fff5f1
+        );
+
+    box-shadow:
+        0 6px 20px rgba(18, 59, 115, 0.06);
+}
+
+
+/* =========================================================
+   PAY NOW INFO
+========================================================= */
+
+.pay-now-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.pay-now-info span {
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.pay-now-info strong {
+
+    color: var(--primary);
+
+    font-size: 17px;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   AMOUNT INPUT AREA
+========================================================= */
+
+.amount-box {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.amount-box label {
+
+    color: var(--primary);
+
+    font-size: 9px;
+
+    font-weight: 800;
+}
+
+.amount-input {
+
+    width: 180px;
+
+    height: 43px;
+
+    padding: 8px 12px;
+
+    border: 1px solid #ccd8e6;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: var(--primary);
+
+    font-size: 14px;
+
+    font-weight: 800;
+}
+
+.amount-input:focus {
+
+    border-color: var(--secondary);
+
+    box-shadow:
+        0 0 0 3px rgba(228, 92, 50, .10);
+}
+
+
+/* Remove number arrows */
+
+.amount-input[type=number]::-webkit-inner-spin-button,
+.amount-input[type=number]::-webkit-outer-spin-button {
+
+    -webkit-appearance: none;
+
+    margin: 0;
+}
+
+.amount-input[type=number] {
+
+    -moz-appearance: textfield;
+
+    appearance: textfield;
+}
+
+
+/* =========================================================
+   PAY NOW BUTTON
+========================================================= */
+
+.pay-now-btn {
+
+    min-width: 155px;
+
+    min-height: 48px;
+
+    padding: 12px 22px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    border: 0;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e45c32,
+            #f97316
+        );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: .5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 18px rgba(228, 92, 50, 0.25);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        opacity .2s ease;
+}
+
+.pay-now-btn span {
+
+    width: 25px;
+
+    height: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.20);
+
+    font-size: 13px;
+}
+
+.pay-now-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(228, 92, 50, 0.32);
+}
+
+.pay-now-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   DISABLED PAYMENT BUTTON
+========================================================= */
+
+.pay-now-btn:disabled {
+
+    cursor: not-allowed;
+
+    opacity: .55;
+
+    background: #94a3b8;
+
+    box-shadow: none;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   PAYMENT NOTE
+========================================================= */
+
+.pay-now-note {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    line-height: 1.5;
+
+    max-width: 170px;
+}
+
+
+/* =========================================================
+   PAYMENT COMPLETED
+========================================================= */
+
+.payment-completed {
+
+    display: none;
+
+    width: 100%;
+
+    margin: 0 25px 25px;
+
+    padding: 18px 20px;
+
+    border: 1px solid #b7e5d0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ecfdf5,
+            #f0fdf4
+        );
+
+    color: var(--success);
+
+    text-align: center;
+}
+
+.payment-completed.show {
+    display: block;
+}
+
+.payment-completed-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    margin: 0 auto 7px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    font-weight: 900;
+}
+
+.payment-completed-title {
+
+    font-size: 14px;
+
+    font-weight: 900;
+}
+
+.payment-completed-text {
+
+    margin-top: 3px;
+
+    color: #4b7564;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
    SCROLLBAR
 ========================================================= */
 
 .table-wrap::-webkit-scrollbar {
-
     height: 6px;
 }
 
-
 .table-wrap::-webkit-scrollbar-track {
-
     background: #eef2f6;
 }
-
 
 .table-wrap::-webkit-scrollbar-thumb {
 
@@ -785,9 +1079,7 @@ tbody tr:last-child td {
     border-radius: 20px;
 }
 
-
 .table-wrap::-webkit-scrollbar-thumb:hover {
-
     background: var(--secondary);
 }
 
@@ -805,14 +1097,12 @@ tbody tr:last-child td {
         font-size: 12px;
     }
 
-
     .document {
 
         width: 100%;
 
         border-radius: 11px;
     }
-
 
     .top-line {
 
@@ -823,7 +1113,6 @@ tbody tr:last-child td {
         font-size: 8px;
     }
 
-
     .academy {
 
         padding: 23px 15px 4px;
@@ -833,7 +1122,6 @@ tbody tr:last-child td {
         letter-spacing: .4px;
     }
 
-
     .agreement-title {
 
         padding: 5px 15px 18px;
@@ -842,7 +1130,6 @@ tbody tr:last-child td {
 
         line-height: 1.6;
     }
-
 
     .website-date {
 
@@ -859,12 +1146,10 @@ tbody tr:last-child td {
         font-size: 9px;
     }
 
-
     .divider {
 
         margin: 0 15px 20px;
     }
-
 
     .section-title,
     .payment-section-title {
@@ -876,7 +1161,6 @@ tbody tr:last-child td {
         font-size: 12px;
     }
 
-
     .section-title::before,
     .payment-section-title::before {
 
@@ -884,7 +1168,6 @@ tbody tr:last-child td {
 
         height: 19px;
     }
-
 
     .table-wrap {
 
@@ -899,12 +1182,9 @@ tbody tr:last-child td {
         overflow-x: auto;
     }
 
-
     table {
-
         min-width: 620px;
     }
-
 
     th {
 
@@ -913,14 +1193,12 @@ tbody tr:last-child td {
         font-size: 9px;
     }
 
-
     td {
 
         padding: 9px 8px;
 
         font-size: 9px;
     }
-
 
     .payment-section {
 
@@ -931,14 +1209,12 @@ tbody tr:last-child td {
         padding-top: 20px;
     }
 
-
     .payment-section .payment-section-title {
 
         margin-left: 0;
 
         margin-right: 0;
     }
-
 
     .payment-intro {
 
@@ -947,12 +1223,9 @@ tbody tr:last-child td {
         line-height: 1.7;
     }
 
-
     .payment-table {
-
         min-width: 800px;
     }
-
 
     .payment-summary {
 
@@ -960,7 +1233,6 @@ tbody tr:last-child td {
 
         gap: 9px;
     }
-
 
     .payment-summary div {
 
@@ -971,14 +1243,12 @@ tbody tr:last-child td {
         font-size: 9px;
     }
 
-
     .summary {
 
         margin: 18px 15px;
 
         padding: 14px;
     }
-
 
     .summary p {
 
@@ -987,12 +1257,78 @@ tbody tr:last-child td {
         line-height: 1.7;
     }
 
-
     .note {
 
         font-size: 8px !important;
 
         padding: 10px 11px;
+    }
+
+
+    /* PAYMENT */
+
+    .pay-now-section {
+
+        margin: 18px 15px;
+
+        padding: 17px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        text-align: center;
+
+        gap: 12px;
+    }
+
+    .pay-now-info {
+
+        align-items: center;
+    }
+
+    .pay-now-info span {
+        font-size: 8px;
+    }
+
+    .pay-now-info strong {
+        font-size: 15px;
+    }
+
+    .amount-box {
+        align-items: center;
+    }
+
+    .amount-input {
+
+        width: 100%;
+
+        max-width: 280px;
+    }
+
+    .pay-now-btn {
+
+        width: 100%;
+
+        min-height: 47px;
+
+        font-size: 11px;
+    }
+
+    .pay-now-note {
+
+        max-width: none;
+
+        font-size: 8px;
+
+        text-align: center;
+    }
+
+    .payment-completed {
+
+        width: calc(100% - 30px);
+
+        margin: 0 15px 18px;
     }
 
 }
@@ -1005,33 +1341,33 @@ tbody tr:last-child td {
 @media (max-width: 420px) {
 
     body {
-
         padding: 7px;
     }
 
-
     .academy {
-
         font-size: 16px;
     }
 
-
     .agreement-title {
-
         font-size: 9px;
     }
 
-
     .website-date {
-
         font-size: 8px;
     }
 
-
     .section-title,
     .payment-section-title {
-
         font-size: 11px;
+    }
+
+    .pay-now-info strong {
+        font-size: 14px;
+    }
+
+    .pay-now-btn {
+        min-height: 45px;
+        font-size: 10px;
     }
 
 }
@@ -1050,7 +1386,6 @@ tbody tr:last-child td {
         background: #ffffff;
     }
 
-
     .document {
 
         width: 100%;
@@ -1064,203 +1399,1067 @@ tbody tr:last-child td {
         box-shadow: none;
     }
 
-
     .table-wrap {
-
         overflow: visible;
     }
 
-
     .payment-table {
-
         min-width: 0;
     }
 
+    .pay-now-section {
+        display: none;
+    }
+
+    .payment-completed {
+        display: block !important;
+    }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="document">
 
+
+    <!-- =====================================================
+         TOP BAR
+    ====================================================== -->
+
     <div class="top-line">
+
         <div></div>
-        <div>Website developer - kitabnomy and team</div>
+
+        <div>
+            Website developer - kitabnomy and team
+        </div>
+
     </div>
+
+
+    <!-- =====================================================
+         ACADEMY
+    ====================================================== -->
 
     <div class="academy">
         ROSE CHILDREN ACADEMY
     </div>
 
+
+    <!-- =====================================================
+         TITLE
+    ====================================================== -->
+
     <div class="agreement-title">
         WEBSITE DEVELOPMENT, BILL &amp; SERVICE AGREEMENT
     </div>
 
+
+    <!-- =====================================================
+         WEBSITE / DATE
+    ====================================================== -->
+
     <div class="website-date">
+
         <div>
-            <strong>Website:</strong> rosechildrenacademy.in (For One Year)
+            <strong>Website:</strong>
+            rosechildrenacademy.in (For One Year)
         </div>
+
         <div>
-            <strong>Date:</strong> 08/08/2026
+            <strong>Date:</strong>
+            08/08/2026
         </div>
+
     </div>
 
+
     <hr class="divider">
+
+
+    <!-- =====================================================
+         PRICE DETAILS
+    ====================================================== -->
 
     <div class="section-title">
         1. PRICE DETAILS
     </div>
 
+
     <div class="table-wrap">
+
         <table>
+
             <thead>
+
                 <tr>
-                    <th class="serial">S. No.</th>
-                    <th class="description">Description</th>
-                    <th class="price">Price</th>
+
+                    <th class="serial">
+                        S. No.
+                    </th>
+
+                    <th class="description">
+                        Description
+                    </th>
+
+                    <th class="price">
+                        Price
+                    </th>
+
                 </tr>
+
             </thead>
 
+
             <tbody>
+
                 <tr>
+
                     <td>1</td>
-                    <td>Domain Name Registration – 1 Year (Recurring)</td>
-                    <td class="price">+ ₹899.00</td>
+
+                    <td>
+                        Domain Name Registration – 1 Year
+                        (Recurring)
+                    </td>
+
+                    <td class="price">
+                        + ₹899.00
+                    </td>
+
                 </tr>
 
+
                 <tr>
+
                     <td>2</td>
-                    <td>Hosting – Web Economy – Linux cPanel – 1 Year (Recurring)</td>
-                    <td class="price">+ ₹2,388.00</td>
+
+                    <td>
+                        Hosting – Web Economy – Linux cPanel –
+                        1 Year (Recurring)
+                    </td>
+
+                    <td class="price">
+                        + ₹2,388.00
+                    </td>
+
                 </tr>
 
+
                 <tr>
+
                     <td>3</td>
-                    <td>Website Design &amp; Development – Complete Website (only first Time)</td>
-                    <td class="price">+ ₹6,713.00</td>
+
+                    <td>
+                        Website Design &amp; Development –
+                        Complete Website (only first time)
+                    </td>
+
+                    <td class="price">
+                        + ₹6,713.00
+                    </td>
+
                 </tr>
 
+
                 <tr>
+
                     <td>4</td>
-                    <td>First Month Maintenance Fee</td>
-                    <td class="price">+ ₹2000</td>
+
+                    <td>
+                        First Month Maintenance Fee
+                    </td>
+
+                    <td class="price">
+                        + ₹2,000.00
+                    </td>
+
                 </tr>
 
+
                 <tr>
+
                     <td>5</td>
-                    <td>Discount</td>
-                    <td class="price">- ₹2000</td>
+
+                    <td>
+                        Discount
+                    </td>
+
+                    <td class="price">
+                        - ₹2,000.00
+                    </td>
+
                 </tr>
+
 
                 <tr class="total-row">
+
                     <td></td>
-                    <td class="total-label">TOTAL PROJECT PRICE</td>
-                    <td class="total-price">₹10,000.00</td>
+
+                    <td class="total-label">
+                        TOTAL PROJECT PRICE
+                    </td>
+
+                    <td
+                        class="total-price"
+                        id="priceTotal"
+                    >
+                        ₹10,000.00
+                    </td>
+
                 </tr>
+
             </tbody>
+
         </table>
+
     </div>
 
 
     <!-- =====================================================
-         PAYMENT RECORD / FUTURE PAYMENT ENTRIES
+         PAYMENT RECORD
     ====================================================== -->
 
     <div class="payment-section">
+
 
         <div class="payment-section-title">
             2. PAYMENT RECORD
         </div>
 
+
         <p class="payment-intro">
-            Future payments can be recorded below with the payment date,
-            amount, transaction method and transaction ID.
+
+            Payment records and payment summary are calculated
+            automatically from the total project amount and
+            total amount already paid.
+
         </p>
 
+
         <div class="table-wrap">
+
             <table class="payment-table">
 
                 <thead>
+
                     <tr>
-                        <th class="payment-no">S. No.</th>
-                        <th class="payment-date">Date</th>
-                        <th class="payment-amount">Amount</th>
-                        <th class="payment-method">Transaction Method</th>
-                        <th class="payment-id">Transaction ID / UTR</th>
-                        <th class="payment-remarks">Remarks</th>
+
+                        <th class="payment-no">
+                            S. No.
+                        </th>
+
+                        <th class="payment-date">
+                            Date
+                        </th>
+
+                        <th class="payment-amount">
+                            Amount
+                        </th>
+
+                        <th class="payment-method">
+                            Transaction Method
+                        </th>
+
+                        <th class="payment-id">
+                            Transaction ID / UTR
+                        </th>
+
+                        <th class="payment-remarks">
+                            Remarks
+                        </th>
+
                     </tr>
+
                 </thead>
+
 
                 <tbody>
 
-                    <!--
-                    FUTURE PAYMENT ENTRY EXAMPLE
-
                     <tr>
-                        <td>1</td>
-                        <td>DD/MM/YYYY</td>
-                        <td>₹0.00</td>
-                        <td>UPI / Bank Transfer / Cash</td>
-                        <td>TRANSACTION-ID</td>
-                        <td>Payment received</td>
-                    </tr>
-                    -->
 
-                    <tr class="empty-payment-row">
                         <td>1</td>
+
                         <td>—</td>
+
                         <td>—</td>
+
                         <td>—</td>
+
                         <td>—</td>
-                        <td>—</td>
+
+                        <td>Payment record</td>
+
                     </tr>
 
                 </tbody>
 
             </table>
+
         </div>
 
+
+        <!-- =================================================
+             PAYMENT SUMMARY
+        ================================================== -->
+
         <div class="payment-summary">
-            <div>
-                <strong>Total Project Price:</strong>
-                ₹10,000.00
-            </div>
+
 
             <div>
-                <strong>Total Paid:</strong>
-                ₹0.00
+
+                <strong>
+                    Total Project Price:
+                </strong>
+
+                <span id="summaryTotal">
+                    ₹10,000.00
+                </span>
+
             </div>
 
+
             <div>
-                <strong>Balance Due:</strong>
-                ₹10,000.00
+
+                <strong>
+                    Total Paid:
+                </strong>
+
+                <span id="summaryPaid">
+                    ₹0.00
+                </span>
+
             </div>
+
+
+            <div>
+
+                <strong>
+                    Balance Due:
+                </strong>
+
+                <span id="summaryBalance">
+                    ₹10,000.00
+                </span>
+
+            </div>
+
+
         </div>
 
     </div>
+
+
+    <!-- =====================================================
+         FINAL SUMMARY
+    ====================================================== -->
 
     <div class="summary">
 
-        <p>
-            <span class="bold">Total Payable Amount:</span>
-            ₹10,000/-
-        </p>
 
         <p>
-            <span class="bold">In Words:</span>
-            Ten Thousand Rupees Only.
+
+            <span class="bold">
+                Total Project Amount:
+            </span>
+
+            <span id="finalTotal">
+                ₹10,000.00
+            </span>
+
         </p>
+
+
+        <p>
+
+            <span class="bold">
+                Total Payment Received:
+            </span>
+
+            <span id="finalPaid">
+                ₹0.00
+            </span>
+
+        </p>
+
+
+        <p>
+
+            <span class="bold">
+                Remaining Amount:
+            </span>
+
+            <span id="finalBalance">
+                ₹10,000.00
+            </span>
+
+        </p>
+
+
+        <p>
+
+            <span class="bold">
+                Payment Required:
+            </span>
+
+            <span id="finalRequired">
+                ₹10,000.00
+            </span>
+
+        </p>
+
+
+        <p>
+
+            <span class="bold">
+                Payment Status:
+            </span>
+
+            <span id="paymentStatus">
+                Payment Pending
+            </span>
+
+        </p>
+
 
         <p class="note">
-            The above amount includes the website development charges along
-            with the first-year domain registration and hosting charges
-            mentioned above.
+
+            The above amount includes the website development
+            charges along with the first-year domain registration
+            and hosting charges mentioned above.
+
         </p>
 
     </div>
 
+
+    <!-- =====================================================
+         PAY NOW SECTION
+    ====================================================== -->
+
+    <div
+        class="pay-now-section"
+        id="paySection"
+    >
+
+
+        <div class="pay-now-info">
+
+            <span>
+                PAYMENT REQUIRED
+            </span>
+
+            <strong id="payBalance">
+                Balance Due: ₹10,000.00
+            </strong>
+
+        </div>
+
+
+        <!-- =================================================
+             PAYMENT AMOUNT
+        ================================================== -->
+
+        <div class="amount-box">
+
+            <label for="amountInput">
+                ENTER PAYMENT AMOUNT
+            </label>
+
+            <input
+                type="number"
+                id="amountInput"
+                class="amount-input"
+                min="1"
+                step="0.01"
+                value="10000"
+                placeholder="Enter amount"
+            >
+
+        </div>
+
+
+        <!-- =================================================
+             PAY BUTTON
+        ================================================== -->
+
+        <button
+            type="button"
+            class="pay-now-btn"
+            id="payNowBtn"
+            onclick="payNow()"
+        >
+
+            <span>₹</span>
+
+            PAY NOW
+
+        </button>
+
+
+        <p class="pay-now-note">
+
+            You can pay any amount up to the remaining
+            balance using UPI / supported payment apps.
+
+        </p>
+
+
+    </div>
+
+
+    <!-- =====================================================
+         PAYMENT COMPLETED MESSAGE
+    ====================================================== -->
+
+    <div
+        class="payment-completed"
+        id="paymentCompleted"
+    >
+
+        <div class="payment-completed-icon">
+            ✓
+        </div>
+
+        <div class="payment-completed-title">
+            PAYMENT COMPLETED
+        </div>
+
+        <div class="payment-completed-text">
+            The complete project amount has been paid.
+            No further payment is required.
+        </div>
+
+    </div>
+
+
 </div>
 
+
+<script>
+
+/* =========================================================
+   PAYMENT CONFIGURATION
+========================================================= */
+
+
+/*
+    ============================================================
+    ONLY CHANGE THESE TWO VALUES
+    ============================================================
+
+    TOTAL_PROJECT_AMOUNT
+    --------------------
+    Complete project amount.
+
+    TOTAL_PAID_AMOUNT
+    -----------------
+    Amount already received.
+
+    Example:
+
+    Total Project = 10000
+    Already Paid  = 2500
+
+    Remaining = 7500
+*/
+
+
+const TOTAL_PROJECT_AMOUNT = 10000;
+
+const TOTAL_PAID_AMOUNT = 0;
+
+
+/*
+    ============================================================
+    YOUR UPI ID
+    ============================================================
+
+    Replace this with your REAL UPI ID.
+
+    Example:
+
+    const UPI_ID = "9876543210@upi";
+
+    or
+
+    const UPI_ID = "yourname@oksbi";
+
+*/
+
+
+const UPI_ID = "YOURUPI@upi";
+
+
+/*
+    Payment receiver name
+*/
+
+
+const UPI_NAME = "Rose Children Academy";
+
+
+/* =========================================================
+   FORMAT MONEY
+========================================================= */
+
+function formatMoney(amount) {
+
+    return "₹" + Number(amount).toLocaleString(
+        "en-IN",
+        {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CALCULATE BALANCE
+========================================================= */
+
+function getBalance() {
+
+    let balance =
+        Number(TOTAL_PROJECT_AMOUNT) -
+        Number(TOTAL_PAID_AMOUNT);
+
+    if (balance < 0) {
+        balance = 0;
+    }
+
+    return balance;
+
+}
+
+
+/* =========================================================
+   UPDATE ALL DISPLAY VALUES
+========================================================= */
+
+function updatePaymentUI() {
+
+
+    const total =
+        Number(TOTAL_PROJECT_AMOUNT);
+
+
+    const paid =
+        Number(TOTAL_PAID_AMOUNT);
+
+
+    const balance =
+        getBalance();
+
+
+    /* ---------------------------------------------
+       PRICE DETAILS TOTAL
+    --------------------------------------------- */
+
+    document.getElementById(
+        "priceTotal"
+    ).textContent =
+        formatMoney(total);
+
+
+    /* ---------------------------------------------
+       PAYMENT SUMMARY
+    --------------------------------------------- */
+
+    document.getElementById(
+        "summaryTotal"
+    ).textContent =
+        formatMoney(total);
+
+
+    document.getElementById(
+        "summaryPaid"
+    ).textContent =
+        formatMoney(paid);
+
+
+    document.getElementById(
+        "summaryBalance"
+    ).textContent =
+        formatMoney(balance);
+
+
+    /* ---------------------------------------------
+       FINAL SUMMARY
+    --------------------------------------------- */
+
+    document.getElementById(
+        "finalTotal"
+    ).textContent =
+        formatMoney(total);
+
+
+    document.getElementById(
+        "finalPaid"
+    ).textContent =
+        formatMoney(paid);
+
+
+    document.getElementById(
+        "finalBalance"
+    ).textContent =
+        formatMoney(balance);
+
+
+    document.getElementById(
+        "finalRequired"
+    ).textContent =
+        formatMoney(balance);
+
+
+    /* ---------------------------------------------
+       PAY NOW AREA
+    --------------------------------------------- */
+
+    document.getElementById(
+        "payBalance"
+    ).textContent =
+        "Balance Due: " + formatMoney(balance);
+
+
+    const amountInput =
+        document.getElementById(
+            "amountInput"
+        );
+
+
+    const payButton =
+        document.getElementById(
+            "payNowBtn"
+        );
+
+
+    const paySection =
+        document.getElementById(
+            "paySection"
+        );
+
+
+    const completed =
+        document.getElementById(
+            "paymentCompleted"
+        );
+
+
+    const status =
+        document.getElementById(
+            "paymentStatus"
+        );
+
+
+    /* =================================================
+       COMPLETE PAYMENT
+    ================================================= */
+
+    if (balance <= 0) {
+
+
+        status.textContent =
+            "Payment Completed";
+
+
+        status.style.color =
+            "#16845a";
+
+
+        amountInput.value = "0";
+
+
+        amountInput.disabled = true;
+
+
+        payButton.disabled = true;
+
+
+        payButton.innerHTML =
+            "<span>✓</span> PAID";
+
+
+        paySection.style.display =
+            "none";
+
+
+        completed.classList.add(
+            "show"
+        );
+
+
+    }
+
+
+    /* =================================================
+       PAYMENT STILL REQUIRED
+    ================================================= */
+
+    else {
+
+
+        status.textContent =
+            "Payment Pending";
+
+
+        status.style.color =
+            "#e45c32";
+
+
+        amountInput.disabled =
+            false;
+
+
+        payButton.disabled =
+            false;
+
+
+        completed.classList.remove(
+            "show"
+        );
+
+
+        /*
+            Default payment amount =
+            complete remaining balance
+        */
+
+        if (
+            Number(amountInput.value) <= 0 ||
+            Number(amountInput.value) > balance
+        ) {
+
+            amountInput.value =
+                balance.toFixed(2);
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   VALIDATE PAYMENT AMOUNT
+========================================================= */
+
+function validatePaymentAmount() {
+
+
+    const input =
+        document.getElementById(
+            "amountInput"
+        );
+
+
+    const balance =
+        getBalance();
+
+
+    let amount =
+        Number(input.value);
+
+
+    /*
+        Empty / invalid
+    */
+
+    if (
+        !Number.isFinite(amount) ||
+        amount <= 0
+    ) {
+
+        alert(
+            "Please enter a valid payment amount."
+        );
+
+        input.focus();
+
+        return null;
+
+    }
+
+
+    /*
+        Payment cannot exceed balance
+    */
+
+    if (amount > balance) {
+
+        alert(
+            "Payment amount cannot be greater than the remaining balance of " +
+            formatMoney(balance) +
+            "."
+        );
+
+        input.value =
+            balance.toFixed(2);
+
+        input.focus();
+
+        return null;
+
+    }
+
+
+    /*
+        Round to 2 decimals
+    */
+
+    amount =
+        Math.round(
+            amount * 100
+        ) / 100;
+
+
+    return amount;
+
+}
+
+
+/* =========================================================
+   PAY NOW
+========================================================= */
+
+function payNow() {
+
+
+    const balance =
+        getBalance();
+
+
+    /*
+        Already paid
+    */
+
+    if (balance <= 0) {
+
+        return;
+
+    }
+
+
+    const amount =
+        validatePaymentAmount();
+
+
+    if (amount === null) {
+
+        return;
+
+    }
+
+
+    /*
+        UPI ID CHECK
+    */
+
+    if (
+        !UPI_ID ||
+        UPI_ID === "YOURUPI@upi"
+    ) {
+
+        alert(
+            "Please set your real UPI ID in the UPI_ID variable before accepting payments."
+        );
+
+        return;
+
+    }
+
+
+    /*
+        UPI PAYMENT URL
+    */
+
+    const upiURL =
+        "upi://pay" +
+        "?pa=" +
+        encodeURIComponent(UPI_ID) +
+        "&pn=" +
+        encodeURIComponent(UPI_NAME) +
+        "&am=" +
+        encodeURIComponent(
+            amount.toFixed(2)
+        ) +
+        "&cu=INR";
+
+
+    /*
+        Open payment application
+    */
+
+    window.location.href =
+        upiURL;
+
+}
+
+
+/* =========================================================
+   AMOUNT INPUT EVENTS
+========================================================= */
+
+document
+    .getElementById("amountInput")
+    .addEventListener(
+        "input",
+        function () {
+
+
+            const balance =
+                getBalance();
+
+
+            let amount =
+                Number(this.value);
+
+
+            /*
+                Prevent negative value
+            */
+
+            if (amount < 0) {
+
+                this.value = "";
+
+            }
+
+
+            /*
+                Prevent amount greater
+                than balance
+            */
+
+            if (
+                amount > balance
+            ) {
+
+                this.value =
+                    balance.toFixed(2);
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+updatePaymentUI();
+
+</script>
+
+
 </body>
+
 </html>
