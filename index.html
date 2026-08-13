@@ -1,734 +1,1302 @@
+# `notice-board.html`
 
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Notice Board | Rose Children Academy</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="notice-board.css">
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ====================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =====================================================
+           BODY
+        ====================================================== */
+
+        body {
+
+            font-family: "Poppins", Arial, sans-serif;
+
+            background: #f4f7fb;
+
+            color: #1f2937;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =====================================================
+           MAIN PAGE
+        ====================================================== */
+
+        .notice-page {
+
+            width: 94%;
+
+            max-width: 1450px;
+
+            margin: 45px auto;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ====================================================== */
+
+        .notice-heading {
+
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 16px;
+
+            padding: 25px 30px;
+
+            margin-bottom: 22px;
+
+            box-shadow:
+                0 6px 25px rgba(0, 0, 0, 0.05);
+
+        }
+
+
+        .heading-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+        }
+
+
+        /* =====================================================
+           ICON
+        ====================================================== */
+
+        .heading-icon {
+
+            width: 60px;
+
+            height: 60px;
+
+            border-radius: 14px;
+
+            background: #eff6ff;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 28px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        /* =====================================================
+           SMALL TITLE
+        ====================================================== */
+
+        .heading-label {
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.6px;
+
+            color: #2563eb;
+
+            margin-bottom: 3px;
+
+        }
+
+
+        /* =====================================================
+           MAIN TITLE
+        ====================================================== */
+
+        .notice-heading h1 {
+
+            font-size: 30px;
+
+            line-height: 1.3;
+
+            color: #111827;
+
+            font-weight: 700;
+
+        }
+
+
+        .notice-heading p {
+
+            font-size: 13px;
+
+            color: #6b7280;
+
+            margin-top: 4px;
+
+        }
+
+
+        /* =====================================================
+           NOTICE CARD
+        ====================================================== */
+
+        .notice-card {
+
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 6px 25px rgba(0, 0, 0, 0.04);
+
+        }
+
+
+        /* =====================================================
+           CARD HEADER
+        ====================================================== */
+
+        .notice-card-header {
+
+            padding: 22px 25px;
+
+            border-bottom: 1px solid #e5e7eb;
+
+        }
+
+
+        .notice-card-header h2 {
+
+            font-size: 19px;
+
+            color: #111827;
+
+            font-weight: 600;
+
+        }
+
+
+        .notice-card-header p {
+
+            font-size: 12px;
+
+            color: #6b7280;
+
+            margin-top: 2px;
+
+        }
+
+
+        /* =====================================================
+           TABLE SCROLL
+        ====================================================== */
+
+        .table-scroll {
+
+            width: 100%;
+
+            overflow-x: auto;
+
+            -webkit-overflow-scrolling: touch;
+
+        }
+
+
+        /* =====================================================
+           TABLE
+        ====================================================== */
+
+        .notice-table {
+
+            width: 100%;
+
+            min-width: 1050px;
+
+            border-collapse: collapse;
+
+            table-layout: fixed;
+
+        }
+
+
+        /* =====================================================
+           TABLE HEADER
+        ====================================================== */
+
+        .notice-table thead {
+
+            background: #111827;
+
+        }
+
+
+        .notice-table th {
+
+            padding: 14px 15px;
+
+            color: #ffffff;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            text-align: left;
+
+            white-space: nowrap;
+
+            border-right: 1px solid rgba(255,255,255,0.08);
+
+        }
+
+
+        .notice-table th:last-child {
+
+            border-right: none;
+
+        }
+
+
+        /* =====================================================
+           TABLE BODY
+        ====================================================== */
+
+        .notice-table td {
+
+            padding: 15px;
+
+            font-size: 12.5px;
+
+            color: #374151;
+
+            vertical-align: top;
+
+            border-bottom: 1px solid #e5e7eb;
+
+        }
+
+
+        /* =====================================================
+           HOVER
+        ====================================================== */
+
+        .notice-table tbody tr {
+
+            transition: background 0.2s ease;
+
+        }
+
+
+        .notice-table tbody tr:hover {
+
+            background: #f8fafc;
+
+        }
+
+
+        .notice-table tbody tr:last-child td {
+
+            border-bottom: none;
+
+        }
+
+
+        /* =====================================================
+           COLUMN WIDTH
+        ====================================================== */
+
+        .serial-column {
+
+            width: 70px;
+
+            text-align: center !important;
+
+        }
+
+
+        .date-column {
+
+            width: 130px;
+
+        }
+
+
+        .title-column {
+
+            width: 220px;
+
+        }
+
+
+        .category-column {
+
+            width: 130px;
+
+        }
+
+
+        .details-column {
+
+            width: auto;
+
+        }
+
+
+        .attachment-column {
+
+            width: 120px;
+
+        }
+
+
+        /* =====================================================
+           SERIAL
+        ====================================================== */
+
+        .serial {
+
+            text-align: center;
+
+            font-weight: 600;
+
+            color: #6b7280;
+
+        }
+
+
+        /* =====================================================
+           DATE
+        ====================================================== */
+
+        .notice-date {
+
+            display: inline-block;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            color: #374151;
+
+            white-space: nowrap;
+
+        }
+
+
+        /* =====================================================
+           TITLE
+        ====================================================== */
+
+        .notice-title {
+
+            font-weight: 600;
+
+            color: #111827 !important;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =====================================================
+           DETAILS
+        ====================================================== */
+
+        .notice-details {
+
+            color: #4b5563;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =====================================================
+           CATEGORY
+        ====================================================== */
+
+        .category {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 5px 11px;
+
+            border-radius: 20px;
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+
+        }
+
+
+        /* GENERAL */
+
+        .category.general {
+
+            background: #f3f4f6;
+
+            color: #374151;
+
+        }
+
+
+        /* ADMISSION */
+
+        .category.admission {
+
+            background: #dbeafe;
+
+            color: #1d4ed8;
+
+        }
+
+
+        /* EXAMINATION */
+
+        .category.examination {
+
+            background: #fef3c7;
+
+            color: #92400e;
+
+        }
+
+
+        /* HOLIDAY */
+
+        .category.holiday {
+
+            background: #dcfce7;
+
+            color: #166534;
+
+        }
+
+
+        /* EVENT */
+
+        .category.event {
+
+            background: #ede9fe;
+
+            color: #6d28d9;
+
+        }
+
+
+        /* IMPORTANT */
+
+        .category.important {
+
+            background: #fee2e2;
+
+            color: #b91c1c;
+
+        }
+
+
+        /* =====================================================
+           PDF / VIEW BUTTON
+        ====================================================== */
+
+        .view-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 7px 12px;
+
+            border-radius: 6px;
+
+            background: #eff6ff;
+
+            color: #2563eb;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+
+            transition: all 0.2s ease;
+
+        }
+
+
+        .view-button:hover {
+
+            background: #2563eb;
+
+            color: #ffffff;
+
+        }
+
+
+        /* =====================================================
+           NO ATTACHMENT
+        ====================================================== */
+
+        .no-attachment {
+
+            color: #9ca3af;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        .notice-footer {
+
+            padding: 15px 20px;
+
+            background: #f8fafc;
+
+            border-top: 1px solid #e5e7eb;
+
+            color: #6b7280;
+
+            font-size: 11px;
+
+        }
+
+
+        /* =====================================================
+           SCROLLBAR
+        ====================================================== */
+
+        .table-scroll::-webkit-scrollbar {
+
+            height: 7px;
+
+        }
+
+
+        .table-scroll::-webkit-scrollbar-track {
+
+            background: #f1f5f9;
+
+        }
+
+
+        .table-scroll::-webkit-scrollbar-thumb {
+
+            background: #cbd5e1;
+
+            border-radius: 10px;
+
+        }
+
+
+        .table-scroll::-webkit-scrollbar-thumb:hover {
+
+            background: #94a3b8;
+
+        }
+
+
+        /* =====================================================
+           TABLET
+        ====================================================== */
+
+        @media (max-width: 900px) {
+
+            .notice-page {
+
+                width: 95%;
+
+                margin: 30px auto;
+
+            }
+
+
+            .notice-heading {
+
+                padding: 22px;
+
+            }
+
+
+            .notice-heading h1 {
+
+                font-size: 27px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 600px) {
+
+            .notice-page {
+
+                width: 94%;
+
+                margin: 20px auto;
+
+            }
+
+
+            .notice-heading {
+
+                padding: 18px;
+
+                border-radius: 12px;
+
+            }
+
+
+            .heading-left {
+
+                gap: 12px;
+
+            }
+
+
+            .heading-icon {
+
+                width: 48px;
+
+                height: 48px;
+
+                border-radius: 11px;
+
+                font-size: 22px;
+
+            }
+
+
+            .heading-label {
+
+                font-size: 9px;
+
+                letter-spacing: 1px;
+
+            }
+
+
+            .notice-heading h1 {
+
+                font-size: 22px;
+
+            }
+
+
+            .notice-heading p {
+
+                font-size: 11px;
+
+            }
+
+
+            .notice-card {
+
+                border-radius: 12px;
+
+            }
+
+
+            .notice-card-header {
+
+                padding: 17px;
+
+            }
+
+
+            .notice-card-header h2 {
+
+                font-size: 17px;
+
+            }
+
+
+            .notice-card-header p {
+
+                font-size: 11px;
+
+            }
+
+
+            /*
+             * Mobile पर table horizontal scroll होगी
+             * ताकि सभी columns सही दिखाई दें।
+             */
+
+            .notice-table {
+
+                min-width: 1000px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ====================================================== */
+
+        @media (max-width: 400px) {
+
+            .notice-heading h1 {
+
+                font-size: 20px;
+
+            }
+
+
+            .heading-icon {
+
+                width: 44px;
+
+                height: 44px;
+
+                font-size: 20px;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<div class="notice-container">
 
-    <!-- HEADER -->
-    <div class="notice-header">
-        <div>
-            <span class="notice-small-title">SCHOOL INFORMATION</span>
-            <h1>Notice Board</h1>
-            <p>Latest notices and important announcements</p>
-        </div>
+    <!-- =====================================================
+         MAIN NOTICE PAGE
+    ====================================================== -->
 
-        <button class="add-notice-btn" onclick="openNoticeForm()">
-            + Add Notice
-        </button>
-    </div>
+    <div class="notice-page">
 
 
-    <!-- SEARCH / FILTER -->
-    <div class="notice-toolbar">
+        <!-- =================================================
+             PAGE HEADER
+        ================================================== -->
 
-        <div class="search-box">
-            <input
-                type="text"
-                id="searchNotice"
-                placeholder="Search notice..."
-                onkeyup="searchNotice()"
-            >
-        </div>
+        <div class="notice-heading">
 
-        <select id="categoryFilter" onchange="filterNotice()">
-            <option value="">All Categories</option>
-            <option value="General">General</option>
-            <option value="Admission">Admission</option>
-            <option value="Examination">Examination</option>
-            <option value="Holiday">Holiday</option>
-            <option value="Event">Event</option>
-            <option value="Important">Important</option>
-        </select>
+            <div class="heading-left">
 
-    </div>
+                <div class="heading-icon">
+                    📢
+                </div>
 
 
-    <!-- NOTICE TABLE -->
-    <div class="notice-table-wrapper">
+                <div>
 
-        <table class="notice-table">
+                    <div class="heading-label">
+                        SCHOOL INFORMATION
+                    </div>
 
-            <thead>
-                <tr>
-                    <th class="serial-column">S.No.</th>
-                    <th>Date</th>
-                    <th>Notice Title</th>
-                    <th>Category</th>
-                    <th>Description</th>
-                    <th>Attachment</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
 
-            <tbody id="noticeTableBody">
+                    <h1>
+                        Notice Board
+                    </h1>
 
-                <!-- NOTICE ROW -->
-                <tr>
-                    <td>1</td>
 
-                    <td>
-                        <span class="notice-date">
-                            13 Aug 2026
-                        </span>
-                    </td>
-
-                    <td>
-                        <strong>Independence Day Celebration</strong>
-                    </td>
-
-                    <td>
-                        <span class="category event">
-                            Event
-                        </span>
-                    </td>
-
-                    <td>
-                        School will remain open for the Independence Day
-                        celebration. Students are requested to attend in
-                        proper school uniform.
-                    </td>
-
-                    <td>
-                        <a href="#" class="view-btn">
-                            View
-                        </a>
-                    </td>
-
-                    <td>
-                        <div class="action-buttons">
-
-                            <button
-                                class="edit-btn"
-                                onclick="editNotice(this)">
-                                Edit
-                            </button>
-
-                            <button
-                                class="delete-btn"
-                                onclick="deleteNotice(this)">
-                                Delete
-                            </button>
-
-                        </div>
-                    </td>
-                </tr>
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-
-    <!-- EMPTY MESSAGE -->
-    <div id="emptyMessage" class="empty-message">
-        No notices found.
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     ADD / EDIT NOTICE MODAL
-===================================================== -->
-
-<div id="noticeModal" class="modal">
-
-    <div class="modal-content">
-
-        <div class="modal-header">
-            <h2 id="modalTitle">Add New Notice</h2>
-
-            <button
-                class="close-modal"
-                onclick="closeNoticeForm()">
-                &times;
-            </button>
-        </div>
-
-
-        <form id="noticeForm" onsubmit="saveNotice(event)">
-
-            <input type="hidden" id="editRowIndex">
-
-
-            <!-- DATE -->
-            <div class="form-group">
-
-                <label for="noticeDate">
-                    Notice Date
-                </label>
-
-                <input
-                    type="date"
-                    id="noticeDate"
-                    required>
-
-            </div>
-
-
-            <!-- TITLE -->
-            <div class="form-group">
-
-                <label for="noticeTitle">
-                    Notice Title
-                </label>
-
-                <input
-                    type="text"
-                    id="noticeTitle"
-                    placeholder="Enter notice title"
-                    required>
-
-            </div>
-
-
-            <!-- CATEGORY -->
-            <div class="form-group">
-
-                <label for="noticeCategory">
-                    Category
-                </label>
-
-                <select id="noticeCategory" required>
-
-                    <option value="">
-                        Select Category
-                    </option>
-
-                    <option value="General">
-                        General
-                    </option>
-
-                    <option value="Admission">
-                        Admission
-                    </option>
-
-                    <option value="Examination">
-                        Examination
-                    </option>
-
-                    <option value="Holiday">
-                        Holiday
-                    </option>
-
-                    <option value="Event">
-                        Event
-                    </option>
-
-                    <option value="Important">
-                        Important
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <!-- DESCRIPTION -->
-            <div class="form-group">
-
-                <label for="noticeDescription">
-                    Description
-                </label>
-
-                <textarea
-                    id="noticeDescription"
-                    rows="5"
-                    placeholder="Enter notice details..."
-                    required></textarea>
-
-            </div>
-
-
-            <!-- ATTACHMENT -->
-            <div class="form-group">
-
-                <label for="noticeAttachment">
-                    Attachment / PDF Link
-                </label>
-
-                <input
-                    type="text"
-                    id="noticeAttachment"
-                    placeholder="Enter PDF or document URL">
-
-                <small>
-                    Example: notice.pdf
-                </small>
-
-            </div>
-
-
-            <!-- BUTTONS -->
-            <div class="form-buttons">
-
-                <button
-                    type="button"
-                    class="cancel-btn"
-                    onclick="closeNoticeForm()">
-                    Cancel
-                </button>
-
-                <button
-                    type="submit"
-                    class="save-btn">
-                    Save Notice
-                </button>
-
-            </div>
-
-        </form>
-
-    </div>
-
-</div>
-
-
-<script>
-
-/* =====================================================
-   OPEN FORM
-===================================================== */
-
-function openNoticeForm() {
-
-    document.getElementById("noticeModal").style.display = "flex";
-
-    document.getElementById("modalTitle").innerText =
-        "Add New Notice";
-
-    document.getElementById("noticeForm").reset();
-
-    document.getElementById("editRowIndex").value = "";
-
-}
-
-
-/* =====================================================
-   CLOSE FORM
-===================================================== */
-
-function closeNoticeForm() {
-
-    document.getElementById("noticeModal").style.display = "none";
-
-}
-
-
-/* =====================================================
-   SAVE NOTICE
-===================================================== */
-
-function saveNotice(event) {
-
-    event.preventDefault();
-
-    const date =
-        document.getElementById("noticeDate").value;
-
-    const title =
-        document.getElementById("noticeTitle").value;
-
-    const category =
-        document.getElementById("noticeCategory").value;
-
-    const description =
-        document.getElementById("noticeDescription").value;
-
-    const attachment =
-        document.getElementById("noticeAttachment").value;
-
-    const editIndex =
-        document.getElementById("editRowIndex").value;
-
-    const table =
-        document.getElementById("noticeTableBody");
-
-
-    /* DATE FORMAT */
-
-    let formattedDate = date;
-
-    if (date) {
-
-        const dateObject = new Date(date);
-
-        formattedDate =
-            dateObject.toLocaleDateString(
-                "en-GB",
-                {
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric"
-                }
-            );
-
-    }
-
-
-    /* CATEGORY CLASS */
-
-    const categoryClass =
-        category.toLowerCase();
-
-
-    /* ATTACHMENT */
-
-    let attachmentHTML = "";
-
-    if (attachment.trim() !== "") {
-
-        attachmentHTML =
-            `<a href="${attachment}"
-                target="_blank"
-                class="view-btn">
-                View
-            </a>`;
-
-    } else {
-
-        attachmentHTML =
-            `<span class="no-file">—</span>`;
-
-    }
-
-
-    /* EDIT */
-
-    if (editIndex !== "") {
-
-        const row =
-            table.rows[editIndex];
-
-        row.cells[1].innerHTML =
-            `<span class="notice-date">
-                ${formattedDate}
-            </span>`;
-
-        row.cells[2].innerHTML =
-            `<strong>${title}</strong>`;
-
-        row.cells[3].innerHTML =
-            `<span class="category ${categoryClass}">
-                ${category}
-            </span>`;
-
-        row.cells[4].innerText =
-            description;
-
-        row.cells[5].innerHTML =
-            attachmentHTML;
-
-    }
-
-
-    /* ADD NEW */
-
-    else {
-
-        const row =
-            table.insertRow(0);
-
-        const rowNumber =
-            table.rows.length;
-
-        row.innerHTML = `
-
-            <td>
-                ${rowNumber}
-            </td>
-
-            <td>
-                <span class="notice-date">
-                    ${formattedDate}
-                </span>
-            </td>
-
-            <td>
-                <strong>
-                    ${title}
-                </strong>
-            </td>
-
-            <td>
-                <span class="category ${categoryClass}">
-                    ${category}
-                </span>
-            </td>
-
-            <td>
-                ${description}
-            </td>
-
-            <td>
-                ${attachmentHTML}
-            </td>
-
-            <td>
-
-                <div class="action-buttons">
-
-                    <button
-                        class="edit-btn"
-                        onclick="editNotice(this)">
-                        Edit
-                    </button>
-
-                    <button
-                        class="delete-btn"
-                        onclick="deleteNotice(this)">
-                        Delete
-                    </button>
+                    <p>
+                        Latest notices, announcements and
+                        important information
+                    </p>
 
                 </div>
 
-            </td>
-        `;
+            </div>
 
-    }
+        </div>
 
 
-    closeNoticeForm();
 
-    updateSerialNumbers();
+        <!-- =================================================
+             NOTICE CARD
+        ================================================== -->
 
-}
+        <div class="notice-card">
 
 
-/* =====================================================
-   EDIT NOTICE
-===================================================== */
+            <!-- =================================================
+                 CARD HEADER
+            ================================================== -->
 
-function editNotice(button) {
+            <div class="notice-card-header">
 
-    const row =
-        button.closest("tr");
+                <h2>
+                    Latest Notices
+                </h2>
 
-    const table =
-        document.getElementById("noticeTableBody");
+                <p>
+                    Please check this section regularly for
+                    school updates.
+                </p>
 
-    const rowIndex =
-        row.rowIndex - 1;
+            </div>
 
 
-    document.getElementById("editRowIndex").value =
-        rowIndex;
 
+            <!-- =================================================
+                 NOTICE TABLE
+            ================================================== -->
 
-    document.getElementById("modalTitle").innerText =
-        "Edit Notice";
+            <div class="table-scroll">
 
+                <table class="notice-table">
 
-    document.getElementById("noticeTitle").value =
-        row.cells[2].innerText.trim();
 
+                    <!-- =================================================
+                         TABLE HEADER
+                    ================================================== -->
 
-    document.getElementById("noticeCategory").value =
-        row.cells[3].innerText.trim();
+                    <thead>
 
+                        <tr>
 
-    document.getElementById("noticeDescription").value =
-        row.cells[4].innerText.trim();
+                            <th class="serial-column">
+                                S.No.
+                            </th>
 
 
-    document.getElementById("noticeAttachment").value =
-        row.cells[5].querySelector("a")?.getAttribute("href") || "";
+                            <th class="date-column">
+                                Date
+                            </th>
 
 
-    document.getElementById("noticeModal").style.display =
-        "flex";
+                            <th class="title-column">
+                                Notice Title
+                            </th>
 
-}
 
+                            <th class="category-column">
+                                Category
+                            </th>
 
-/* =====================================================
-   DELETE NOTICE
-===================================================== */
 
-function deleteNotice(button) {
+                            <th class="details-column">
+                                Notice Details
+                            </th>
 
-    if (!confirm("Are you sure you want to delete this notice?")) {
-        return;
-    }
 
-    const row =
-        button.closest("tr");
+                            <th class="attachment-column">
+                                Attachment
+                            </th>
 
-    row.remove();
+                        </tr>
 
-    updateSerialNumbers();
+                    </thead>
 
-}
 
 
-/* =====================================================
-   SERIAL NUMBER
-===================================================== */
+                    <!-- =================================================
+                         TABLE BODY
+                    ================================================== -->
 
-function updateSerialNumbers() {
+                    <tbody>
 
-    const rows =
-        document.querySelectorAll(
-            "#noticeTableBody tr"
-        );
 
-    rows.forEach((row, index) => {
+                        <!-- =================================================
+                             NOTICE 1
+                             NEWEST NOTICE ऊपर रखें
+                        ================================================== -->
 
-        row.cells[0].innerText =
-            index + 1;
+                        <tr>
 
-    });
+                            <td class="serial">
+                                1
+                            </td>
 
-}
 
+                            <td>
 
-/* =====================================================
-   SEARCH
-===================================================== */
+                                <span class="notice-date">
+                                    13 Aug 2026
+                                </span>
 
-function searchNotice() {
+                            </td>
 
-    const search =
-        document
-        .getElementById("searchNotice")
-        .value
-        .toLowerCase();
 
-    const rows =
-        document.querySelectorAll(
-            "#noticeTableBody tr"
-        );
+                            <td class="notice-title">
 
-    let visible = 0;
+                                Independence Day Celebration
 
+                            </td>
 
-    rows.forEach(row => {
 
-        const text =
-            row.innerText.toLowerCase();
+                            <td>
 
-        if (text.includes(search)) {
+                                <span class="category event">
+                                    Event
+                                </span>
 
-            row.style.display = "";
-            visible++;
+                            </td>
 
-        } else {
 
-            row.style.display = "none";
+                            <td class="notice-details">
 
-        }
+                                Independence Day celebration
+                                will be organized in the school
+                                premises. All students are
+                                requested to attend the programme
+                                in proper school uniform.
 
-    });
+                            </td>
 
 
-    showEmptyMessage(visible);
+                            <td>
 
-}
+                                <a
+                                    href="notices/independence-day.pdf"
+                                    target="_blank"
+                                    class="view-button">
 
+                                    View PDF
 
-/* =====================================================
-   CATEGORY FILTER
-===================================================== */
+                                </a>
 
-function filterNotice() {
+                            </td>
 
-    const category =
-        document
-        .getElementById("categoryFilter")
-        .value
-        .toLowerCase();
+                        </tr>
 
 
-    const rows =
-        document.querySelectorAll(
-            "#noticeTableBody tr"
-        );
 
-    let visible = 0;
+                        <!-- =================================================
+                             NOTICE 2
+                        ================================================== -->
 
+                        <tr>
 
-    rows.forEach(row => {
+                            <td class="serial">
+                                2
+                            </td>
 
-        const rowCategory =
-            row.cells[3].innerText
-            .trim()
-            .toLowerCase();
 
+                            <td>
 
-        if (
-            category === "" ||
-            rowCategory === category
-        ) {
+                                <span class="notice-date">
+                                    10 Aug 2026
+                                </span>
 
-            row.style.display = "";
-            visible++;
+                            </td>
 
-        } else {
 
-            row.style.display = "none";
+                            <td class="notice-title">
 
-        }
+                                School Holiday
 
-    });
+                            </td>
 
 
-    showEmptyMessage(visible);
+                            <td>
 
-}
+                                <span class="category holiday">
+                                    Holiday
+                                </span>
 
+                            </td>
 
-/* =====================================================
-   EMPTY MESSAGE
-===================================================== */
 
-function showEmptyMessage(count) {
+                            <td class="notice-details">
 
-    const empty =
-        document.getElementById("emptyMessage");
+                                The school will remain closed
+                                on 15 August 2026 on account of
+                                Independence Day.
 
-    if (count === 0) {
+                            </td>
 
-        empty.style.display = "block";
 
-    } else {
+                            <td>
 
-        empty.style.display = "none";
+                                <span class="no-attachment">
+                                    —
+                                </span>
 
-    }
+                            </td>
 
-}
+                        </tr>
 
 
-/* =====================================================
-   CLOSE MODAL WHEN CLICK OUTSIDE
-===================================================== */
 
-window.onclick = function(event) {
+                        <!-- =================================================
+                             NOTICE 3
+                        ================================================== -->
 
-    const modal =
-        document.getElementById("noticeModal");
+                        <tr>
 
-    if (event.target === modal) {
+                            <td class="serial">
+                                3
+                            </td>
 
-        closeNoticeForm();
 
-    }
+                            <td>
 
-};
+                                <span class="notice-date">
+                                    08 Aug 2026
+                                </span>
 
-</script>
+                            </td>
+
+
+                            <td class="notice-title">
+
+                                Unit Test Examination
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="category examination">
+                                    Examination
+                                </span>
+
+                            </td>
+
+
+                            <td class="notice-details">
+
+                                Unit Test examination will begin
+                                from 20 August 2026. Students are
+                                advised to prepare according to
+                                the examination schedule.
+
+                            </td>
+
+
+                            <td>
+
+                                <a
+                                    href="notices/examination-schedule.pdf"
+                                    target="_blank"
+                                    class="view-button">
+
+                                    View PDF
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- =================================================
+                             NOTICE 4
+                        ================================================== -->
+
+                        <tr>
+
+                            <td class="serial">
+                                4
+                            </td>
+
+
+                            <td>
+
+                                <span class="notice-date">
+                                    05 Aug 2026
+                                </span>
+
+                            </td>
+
+
+                            <td class="notice-title">
+
+                                Admission Notice 2026-27
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="category admission">
+                                    Admission
+                                </span>
+
+                            </td>
+
+
+                            <td class="notice-details">
+
+                                Admission process for the
+                                academic session 2026-27
+                                is now open. Parents may
+                                contact the school office
+                                for further information.
+
+                            </td>
+
+
+                            <td>
+
+                                <a
+                                    href="notices/admission-2026-27.pdf"
+                                    target="_blank"
+                                    class="view-button">
+
+                                    View PDF
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- =================================================
+                             NOTICE 5
+                        ================================================== -->
+
+                        <tr>
+
+                            <td class="serial">
+                                5
+                            </td>
+
+
+                            <td>
+
+                                <span class="notice-date">
+                                    01 Aug 2026
+                                </span>
+
+                            </td>
+
+
+                            <td class="notice-title">
+
+                                Parent Teacher Meeting
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="category general">
+                                    General
+                                </span>
+
+                            </td>
+
+
+                            <td class="notice-details">
+
+                                Parent Teacher Meeting will be
+                                held on 25 August 2026. Parents
+                                are requested to attend the
+                                meeting on time.
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="no-attachment">
+                                    —
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FOOTER
+            ================================================== -->
+
+            <div class="notice-footer">
+
+                📌 Please check the Notice Board regularly
+                for latest updates.
+
+            </div>
+
+
+        </div>
+
+    </div>
+
 
 </body>
+
 </html>
+```
