@@ -2,17 +2,25 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Website Development, Bill & Service Agreement</title>
+
+<!-- =========================================================
+     QR CODE LIBRARY
+========================================================= -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 
 <style>
 
 /* =========================================================
    ROSE CHILDREN ACADEMY
    BILL & SERVICE AGREEMENT
-   PAYMENT ENABLED VERSION
+   PAYMENT + UPI QR VERSION
 ========================================================= */
 
 :root {
@@ -124,6 +132,13 @@ body {
     font-weight: 600;
 
     letter-spacing: .3px;
+}
+
+.top-line a {
+
+    color: white;
+
+    text-decoration: none;
 }
 
 .top-line div:last-child {
@@ -558,20 +573,6 @@ tbody tr:last-child td {
 
 
 /* =========================================================
-   PAYMENT ROW
-========================================================= */
-
-.empty-payment-row td {
-
-    height: 50px;
-
-    color: #a2acb8;
-
-    text-align: center;
-}
-
-
-/* =========================================================
    PAYMENT SUMMARY
 ========================================================= */
 
@@ -731,11 +732,11 @@ tbody tr:last-child td {
 
     padding: 22px;
 
-    display: flex;
+    display: grid;
+
+    grid-template-columns: 1fr auto auto;
 
     align-items: center;
-
-    justify-content: space-between;
 
     gap: 20px;
 
@@ -985,6 +986,112 @@ tbody tr:last-child td {
 
 
 /* =========================================================
+   QR PAYMENT BOX
+========================================================= */
+
+.qr-payment-box {
+
+    min-width: 180px;
+
+    padding: 12px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid #dbe5f0;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 4px 15px rgba(20, 40, 70, 0.05);
+}
+
+
+.qr-title {
+
+    margin-bottom: 7px;
+
+    color: var(--primary);
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: .5px;
+
+    text-align: center;
+}
+
+
+#upiQRCode {
+
+    width: 140px;
+
+    height: 140px;
+
+    padding: 5px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #ffffff;
+
+    border: 1px solid #edf1f5;
+
+    border-radius: 6px;
+}
+
+
+#upiQRCode img,
+#upiQRCode canvas {
+
+    display: block;
+
+    max-width: 130px;
+
+    max-height: 130px;
+}
+
+
+.qr-amount {
+
+    margin-top: 7px;
+
+    color: var(--secondary);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    text-align: center;
+}
+
+
+.qr-upi {
+
+    margin-top: 2px;
+
+    color: var(--muted);
+
+    font-size: 7px;
+
+    text-align: center;
+
+    word-break: break-all;
+}
+
+
+/* =========================================================
    PAYMENT COMPLETED
 ========================================================= */
 
@@ -992,7 +1099,7 @@ tbody tr:last-child td {
 
     display: none;
 
-    width: 100%;
+    width: calc(100% - 50px);
 
     margin: 0 25px 25px;
 
@@ -1059,6 +1166,13 @@ tbody tr:last-child td {
     font-size: 9px;
 }
 
+.payment-completed-text a {
+
+    color: green;
+
+    text-decoration: none;
+}
+
 
 /* =========================================================
    SCROLLBAR
@@ -1087,6 +1201,47 @@ tbody tr:last-child td {
 /* =========================================================
    MOBILE
 ========================================================= */
+
+@media (max-width: 850px) {
+
+    .pay-now-section {
+
+        grid-template-columns: 1fr 1fr;
+
+        text-align: center;
+    }
+
+    .pay-now-info {
+
+        grid-column: 1 / -1;
+
+        align-items: center;
+    }
+
+    .pay-now-note {
+
+        grid-column: 1 / -1;
+
+        max-width: none;
+    }
+
+    .qr-payment-box {
+
+        justify-self: center;
+    }
+
+    .amount-box {
+
+        align-items: center;
+    }
+
+    .pay-now-btn {
+
+        justify-self: center;
+    }
+
+}
+
 
 @media (max-width: 750px) {
 
@@ -1273,13 +1428,15 @@ tbody tr:last-child td {
 
         padding: 17px;
 
+        display: flex;
+
         flex-direction: column;
 
         align-items: stretch;
 
         text-align: center;
 
-        gap: 12px;
+        gap: 14px;
     }
 
     .pay-now-info {
@@ -1324,6 +1481,34 @@ tbody tr:last-child td {
         text-align: center;
     }
 
+
+    /* QR MOBILE */
+
+    .qr-payment-box {
+
+        width: 100%;
+
+        min-width: 0;
+
+        padding: 14px;
+    }
+
+    #upiQRCode {
+
+        width: 155px;
+
+        height: 155px;
+    }
+
+    #upiQRCode img,
+    #upiQRCode canvas {
+
+        max-width: 145px;
+
+        max-height: 145px;
+    }
+
+
     .payment-completed {
 
         width: calc(100% - 30px);
@@ -1333,10 +1518,6 @@ tbody tr:last-child td {
 
 }
 
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
 
 @media (max-width: 420px) {
 
@@ -1437,7 +1618,13 @@ tbody tr:last-child td {
         <div></div>
 
         <div>
-            Website developer - <a href="https://kitabnomy.unaux.com/" target="_blank" style="color: white; text-decoration: none;" >https://kitabnomy.unaux.com/</a>
+            Website developer -
+            <a
+                href="https://kitabnomy.unaux.com/"
+                target="_blank"
+            >
+                kitabnomy.unaux.com
+            </a>
         </div>
 
     </div>
@@ -1468,13 +1655,19 @@ tbody tr:last-child td {
     <div class="website-date">
 
         <div>
+
             <strong>Website:</strong>
+
             rosechildrenacademy.in (For One Year)
+
         </div>
 
         <div>
+
             <strong>Date:</strong>
+
             08/08/2026
+
         </div>
 
     </div>
@@ -1587,7 +1780,7 @@ tbody tr:last-child td {
                     <td>5</td>
 
                     <td>
-                        Discount 
+                        Discount
                     </td>
 
                     <td class="price">
@@ -1839,7 +2032,7 @@ tbody tr:last-child td {
 
 
     <!-- =====================================================
-         PAY NOW SECTION
+         PAY NOW + QR SECTION
     ====================================================== -->
 
     <div
@@ -1847,6 +2040,8 @@ tbody tr:last-child td {
         id="paySection"
     >
 
+
+        <!-- PAYMENT INFO -->
 
         <div class="pay-now-info">
 
@@ -1902,10 +2097,41 @@ tbody tr:last-child td {
         </button>
 
 
+        <!-- =================================================
+             QR CODE
+        ================================================== -->
+
+        <div class="qr-payment-box">
+
+            <div class="qr-title">
+                SCAN &amp; PAY USING UPI
+            </div>
+
+            <div id="upiQRCode"></div>
+
+            <div
+                class="qr-amount"
+                id="qrAmount"
+            >
+                Pay ₹10,000.00
+            </div>
+
+            <div
+                class="qr-upi"
+                id="qrUPI"
+            >
+                7705951492@fam
+            </div>
+
+        </div>
+
+
         <p class="pay-now-note">
 
             You can pay any amount up to the remaining
             balance using UPI / supported payment apps.
+
+            Scan the QR code or click PAY NOW.
 
         </p>
 
@@ -1931,12 +2157,34 @@ tbody tr:last-child td {
         </div>
 
         <div class="payment-completed-text">
+
             The complete project amount has been paid.
-            No further payment is required. Thank you for choosing <a href="https://kitabnomy.unaux.com/" target="_blank" style="color: green; text-decoration: none;">Kitabnomy.</a>
+            No further payment is required.
+            Thank you for choosing
+
+            <a
+                href="https://kitabnomy.unaux.com/"
+                target="_blank"
+            >
+                Kitabnomy.
+            </a>
+
         </div>
 
         <div class="payment-completed-text">
-            पूरे प्रोजेक्ट की रकम का भुगतान कर दिया गया है। अब और किसी भुगतान की ज़रूरत नहीं है। <a href="https://kitabnomy.unaux.com/" target="_blank" style="color: green; text-decoration: none;">Kitabnomy</a> को चुनने के लिए धन्यवाद।
+
+            पूरे प्रोजेक्ट की रकम का भुगतान कर दिया गया है।
+            अब और किसी भुगतान की ज़रूरत नहीं है।
+
+            <a
+                href="https://kitabnomy.unaux.com/"
+                target="_blank"
+            >
+                Kitabnomy
+            </a>
+
+            को चुनने के लिए धन्यवाद।
+
         </div>
 
     </div>
@@ -1954,7 +2202,7 @@ tbody tr:last-child td {
 
 /*
     ============================================================
-    ONLY CHANGE THESE TWO VALUES
+    ONLY CHANGE THESE VALUES
     ============================================================
 
     TOTAL_PROJECT_AMOUNT
@@ -1981,19 +2229,10 @@ const TOTAL_PAID_AMOUNT = 0;
 
 /*
     ============================================================
-    YOUR UPI ID
+    UPI CONFIGURATION
     ============================================================
 
-    Replace this with your REAL UPI ID.
-
-    Example:
-
-    const UPI_ID = "7705951492@fam";
-
-    or
-
-    const UPI_ID = "yourname@oksbi";
-
+    Your UPI ID
 */
 
 
@@ -2004,8 +2243,14 @@ const UPI_ID = "7705951492@fam";
     Payment receiver name
 */
 
-
 const UPI_NAME = "chaudhary shad khan";
+
+
+/* =========================================================
+   QR CODE VARIABLE
+========================================================= */
+
+let upiQRCode = null;
 
 
 /* =========================================================
@@ -2036,10 +2281,165 @@ function getBalance() {
         Number(TOTAL_PAID_AMOUNT);
 
     if (balance < 0) {
+
         balance = 0;
+
     }
 
     return balance;
+
+}
+
+
+/* =========================================================
+   CREATE UPI URL
+========================================================= */
+
+function createUPIUrl(amount) {
+
+    return (
+        "upi://pay" +
+        "?pa=" +
+        encodeURIComponent(UPI_ID) +
+        "&pn=" +
+        encodeURIComponent(UPI_NAME) +
+        "&am=" +
+        encodeURIComponent(
+            Number(amount).toFixed(2)
+        ) +
+        "&cu=INR"
+    );
+
+}
+
+
+/* =========================================================
+   GENERATE QR CODE
+========================================================= */
+
+function generateQRCode(amount) {
+
+    const qrContainer =
+        document.getElementById("upiQRCode");
+
+
+    if (!qrContainer) {
+
+        return;
+
+    }
+
+
+    /* Clear previous QR */
+
+    qrContainer.innerHTML = "";
+
+
+    /*
+        Create UPI payment URL
+    */
+
+    const upiURL =
+        createUPIUrl(amount);
+
+
+    /*
+        Generate QR
+    */
+
+    upiQRCode =
+        new QRCode(
+            qrContainer,
+            {
+                text: upiURL,
+
+                width: 130,
+
+                height: 130,
+
+                colorDark: "#123b73",
+
+                colorLight: "#ffffff",
+
+                correctLevel:
+                    QRCode.CorrectLevel.H
+            }
+        );
+
+
+    /*
+        Update QR information
+    */
+
+    document.getElementById(
+        "qrAmount"
+    ).textContent =
+        "Pay " + formatMoney(amount);
+
+
+    document.getElementById(
+        "qrUPI"
+    ).textContent =
+        UPI_ID;
+
+}
+
+
+/* =========================================================
+   UPDATE QR FROM INPUT
+========================================================= */
+
+function updateQRFromInput() {
+
+    const input =
+        document.getElementById(
+            "amountInput"
+        );
+
+
+    const balance =
+        getBalance();
+
+
+    let amount =
+        Number(input.value);
+
+
+    /*
+        Invalid amount
+    */
+
+    if (
+        !Number.isFinite(amount) ||
+        amount <= 0
+    ) {
+
+        amount = balance;
+
+    }
+
+
+    /*
+        Do not allow amount
+        greater than balance
+    */
+
+    if (amount > balance) {
+
+        amount = balance;
+
+    }
+
+
+    /*
+        QR only if balance exists
+    */
+
+    if (amount > 0) {
+
+        generateQRCode(amount);
+
+    }
 
 }
 
@@ -2130,7 +2530,8 @@ function updatePaymentUI() {
     document.getElementById(
         "payBalance"
     ).textContent =
-        "Balance Due: " + formatMoney(balance);
+        "Balance Due: " +
+        formatMoney(balance);
 
 
     const amountInput =
@@ -2178,13 +2579,16 @@ function updatePaymentUI() {
             "#16845a";
 
 
-        amountInput.value = "0";
+        amountInput.value =
+            "0";
 
 
-        amountInput.disabled = true;
+        amountInput.disabled =
+            true;
 
 
-        payButton.disabled = true;
+        payButton.disabled =
+            true;
 
 
         payButton.innerHTML =
@@ -2245,6 +2649,15 @@ function updatePaymentUI() {
                 balance.toFixed(2);
 
         }
+
+
+        /*
+            Generate QR
+        */
+
+        generateQRCode(
+            Number(amountInput.value)
+        );
 
     }
 
@@ -2307,6 +2720,8 @@ function validatePaymentAmount() {
         input.value =
             balance.toFixed(2);
 
+        updateQRFromInput();
+
         input.focus();
 
         return null;
@@ -2366,13 +2781,10 @@ function payNow() {
         UPI ID CHECK
     */
 
-    if (
-        !UPI_ID ||
-        UPI_ID === "7705951492@fam"
-    ) {
+    if (!UPI_ID) {
 
         alert(
-            "Please set your real UPI ID in the UPI_ID variable before accepting payments."
+            "Please set your UPI ID before accepting payments."
         );
 
         return;
@@ -2385,16 +2797,7 @@ function payNow() {
     */
 
     const upiURL =
-        "upi://pay" +
-        "?pa=" +
-        encodeURIComponent(UPI_ID) +
-        "&pn=" +
-        encodeURIComponent(UPI_NAME) +
-        "&am=" +
-        encodeURIComponent(
-            amount.toFixed(2)
-        ) +
-        "&cu=INR";
+        createUPIUrl(amount);
 
 
     /*
@@ -2434,6 +2837,10 @@ document
 
                 this.value = "";
 
+                updateQRFromInput();
+
+                return;
+
             }
 
 
@@ -2450,6 +2857,29 @@ document
                     balance.toFixed(2);
 
             }
+
+
+            /*
+                Update QR immediately
+            */
+
+            updateQRFromInput();
+
+        }
+    );
+
+
+/* =========================================================
+   AMOUNT CHANGE EVENT
+========================================================= */
+
+document
+    .getElementById("amountInput")
+    .addEventListener(
+        "change",
+        function () {
+
+            updateQRFromInput();
 
         }
     );
